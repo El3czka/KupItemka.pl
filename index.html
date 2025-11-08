@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PYKMC.PL</title>
+    <title>KupItemka.pl</title>
     <style>
         /* Styl dla całej strony */
         body {
@@ -16,54 +16,37 @@
             align-items: center;
             justify-content: center;
             color: white;
+            text-align: center;
         }
 
-        /* Pasek u góry */
-        header {
-            background-color: white;
-            height: 60px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            position: fixed;
-            top: 0;
-        }
-
-        /* Napis STRONA GŁÓWNA w pasku */
-        .home-link {
-            color: black;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-
-        .home-link:hover {
-            color: yellow;
-        }
-
-        /* Główny tekst lekko nad środkiem z gradientem różowo-żółtym */
+        /* Główny nagłówek */
         .main-text {
-            margin-top: 80px; 
             font-size: 64px;
             font-weight: bold;
-            text-align: center;
-            letter-spacing: 3px;
-            background: linear-gradient(90deg, #FF69B4, #FFFF00); /* intensywny róż + żółty */
+            background: linear-gradient(90deg, #FF69B4, #FFFF00); /* róż + żółty */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
         }
 
-        /* Prostokątny przycisk, szerszy niż tekst */
+        /* Podtytuł */
+        .subtitle {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 10px;
+            background: linear-gradient(90deg, #FF69B4, #FFFF00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Prostokątny przycisk */
         .pykmc-box {
             margin-top: 40px;
             background-color: #222;
             border: 2px solid #fff;
             border-radius: 10px;
-            width: 300px; /* dłuższy przycisk */
+            width: 300px;
             height: 100px; 
             display: flex;
             align-items: center;
@@ -75,10 +58,10 @@
 
         .pykmc-box:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 25px #FF69B4; /* mocne różowe podświetlenie */
+            box-shadow: 0 0 25px #FF69B4;
         }
 
-        /* Napis w przycisku z gradientem różowo-żółtym */
+        /* Napis w przycisku */
         .pykmc-box span {
             font-size: 32px;
             font-weight: bold;
@@ -91,14 +74,11 @@
     </style>
 </head>
 <body>
-    <header>
-        <a href="#" class="home-link">STRONA GŁÓWNA</a>
-    </header>
+    <!-- Nagłówek -->
+    <div class="main-text">KupItemka.pl</div>
+    <div class="subtitle">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-    <!-- Główny tekst -->
-    <div class="main-text">PYKMC.PL</div>
-
-    <!-- Dłuższy przycisk z gradientem różowo-żółtym -->
+    <!-- Przyciski -->
     <a href="#pykmc" class="pykmc-box">
         <span>PYKMC</span>
     </a>
