@@ -35,6 +35,11 @@
     .content {
         position: relative;
         z-index: 1;
+        flex: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .neon-blue {
@@ -54,7 +59,6 @@
         text-shadow: 0 0 10px #FF69B4;
     }
 
-    /* Kontener dla obu serwerów */
     .servers {
         margin-top: 100px;
         display: flex;
@@ -79,7 +83,7 @@
     .yellow { color: #FFFF00; text-shadow: 0 0 15px #FFFF00; }
     .white { color: #FFFFFF; text-shadow: 0 0 15px #FFFFFF; }
 
-    /* Ogólny przycisk */
+    /* Przyciski serwerów */
     .pykmc-box {
         position: relative;
         background-color: #111;
@@ -114,7 +118,6 @@
         transform: translateY(-5px);
     }
 
-    /* Poświata */
     .pykmc-box::after {
         content: "";
         position: absolute;
@@ -125,7 +128,6 @@
         transition: opacity 0.4s ease;
     }
 
-    /* ANARCHIA – biało-żółta poświata */
     .anarchia-btn::after {
         background: radial-gradient(circle at left, white, transparent 70%), 
                     radial-gradient(circle at right, #FFFF00, transparent 70%);
@@ -136,7 +138,6 @@
         box-shadow: 0 0 25px #FFFF00, 0 0 25px white;
     }
 
-    /* PYKMC – różowo-żółta poświata */
     .pykmc-btn::after {
         background: radial-gradient(circle at left, #FF69B4, transparent 70%), 
                     radial-gradient(circle at right, #FFFF00, transparent 70%);
@@ -147,7 +148,6 @@
         box-shadow: 0 0 25px #FF69B4, 0 0 25px #FFFF00;
     }
 
-    /* Tekst Coming soon */
     .coming-soon {
         font-family: 'Arial Black', Arial, sans-serif;
         font-size: 16px;
@@ -156,6 +156,39 @@
         text-shadow: 0 0 10px #ffffff;
         margin-top: 10px;
         opacity: 0.9;
+    }
+
+    /* Dolne przyciski info */
+    .bottom-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 50px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+    }
+
+    .info-box {
+        background-color: #111;
+        border: 2px solid white;
+        border-radius: 8px;
+        padding: 25px 30px;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        font-family: 'Arial Black', Arial, sans-serif;
+        font-size: 16px;
+        text-align: center;
+        line-height: 1.4;
+        box-shadow: 0 0 15px #ffffff30;
+        transition: transform 0.3s ease;
+    }
+
+    .info-box:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px #ffffff50;
     }
 
 </style>
@@ -192,6 +225,20 @@
             </a>
         </div>
     </div>
+
+    <!-- Dolne przyciski informacyjne -->
+    <div class="bottom-buttons">
+        <div class="info-box">
+            4+<br>Legitchecków
+        </div>
+        <div class="info-box">
+            Częste konkursy<br>Promocje w weekndy i nie tylko!
+        </div>
+        <div class="info-box">
+            Bezpiecznie i tanio<br>Szybkie i bezpieczne usługi
+        </div>
+    </div>
+
 </div>
 
 <script>
