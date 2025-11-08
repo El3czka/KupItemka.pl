@@ -35,7 +35,7 @@
         z-index: 1;
     }
 
-    /* Neonowy efekt prosty, bez błysków */
+    /* Neonowe nagłówki */
     .neon-blue {
         font-size: 64px;
         font-weight: bold;
@@ -62,6 +62,13 @@
         text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
 
+    /* Kontener dla przycisku — wyśrodkowanie */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
     /* Prostokątny przycisk */
     .pykmc-box {
         margin-top: 20px;
@@ -84,7 +91,7 @@
         box-shadow: 0 0 25px #FF69B4;
     }
 
-    /* Napis w przycisku */
+    /* Tekst w przycisku */
     .pykmc-box span {
         font-size: 32px;
         font-weight: bold;
@@ -92,10 +99,10 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        transition: transform 0.3s ease; /* do animacji podskoku */
+        transition: transform 0.3s ease;
     }
 
-    /* Podskok tekstu w przycisku przy hover */
+    /* Podskok tekstu w przycisku */
     .pykmc-box:hover span {
         transform: translateY(-5px);
     }
@@ -111,9 +118,12 @@
 
     <div class="pykmc-main">PYKMC.PL</div>
 
-    <a href="#pykmc" class="pykmc-box">
-        <span>PYKMC</span>
-    </a>
+    <!-- Wyśrodkowany przycisk -->
+    <div class="button-container">
+        <a href="#pykmc" class="pykmc-box">
+            <span>PYKMC</span>
+        </a>
+    </div>
 </div>
 
 <script>
@@ -160,7 +170,7 @@ function animate() {
         d.x += d.dx;
         d.y += d.dy;
 
-        // Odbijamy od krawędzi
+        // Odbicia od krawędzi
         if(d.x < 0 || d.x > width) d.dx = -d.dx;
         if(d.y < 0 || d.y > height) d.dy = -d.dy;
     }
