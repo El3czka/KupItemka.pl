@@ -44,24 +44,27 @@
             color: yellow; /* kolor po najechaniu */
         }
 
-        /* Główny tekst lekko nad środkiem */
+        /* Główny tekst lekko nad środkiem z efektami CSS */
         .main-text {
             margin-top: 80px; /* trochę poniżej paska */
             font-size: 64px;
             font-weight: bold;
             text-align: center;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 5px #000;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #FFD700, #FF8C00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
         }
 
-        /* Ramka z napisem */
+        /* Prostokątna ramka z napisem */
         .pykmc-box {
             margin-top: 40px;
             background-color: #222;
             border: 2px solid #fff;
-            border-radius: 15px;
-            width: 200px;
-            height: 200px;
+            border-radius: 10px;
+            width: 220px;
+            height: 100px; /* niższa niż wcześniej */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -71,14 +74,17 @@
 
         .pykmc-box:hover {
             transform: scale(1.1); /* lekko powiększa */
-            box-shadow: 0 0 20px yellow; /* efekt podświetlenia */
+            box-shadow: 0 0 20px #FFD700; /* efekt podświetlenia */
         }
 
-        /* Napis w ramce */
+        /* Napis w ramce z efektem CSS */
         .pykmc-box span {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
-            color: white;
+            background: linear-gradient(90deg, #00FFFF, #0080FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
     </style>
@@ -91,7 +97,7 @@
     <!-- Główny tekst -->
     <div class="main-text">PYKMC.PL</div>
 
-    <!-- Ramka z napisem -->
+    <!-- Prostokątna ramka z napisem -->
     <a href="#pykmc" class="pykmc-box">
         <span>PYKMC</span>
     </a>
