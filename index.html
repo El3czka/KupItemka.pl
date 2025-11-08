@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KUPITEMKA.PL</title>
 
-<!-- Minecraftowy font -->
+<!-- Font Minecraft -->
 <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
 
 <style>
+    /* Styl główny strony */
     body {
         margin: 0;
-        font-family: 'Minecraftia', monospace;
+        font-family: 'Arial Black', Arial, sans-serif;
         background: #000;
         overflow: hidden;
         height: 100vh;
@@ -25,7 +26,7 @@
         color: white;
     }
 
-    /* Canvas w tle */
+    /* Canvas – tło animowane */
     canvas {
         position: absolute;
         top: 0;
@@ -33,21 +34,24 @@
         z-index: 0;
     }
 
-    /* Treść nad tłem */
+    /* Warstwa tekstu */
     .content {
         position: relative;
         z-index: 1;
     }
 
-    /* Nagłówek neonowy */
+    /* Neonowy tytuł */
     .neon-blue {
+        font-family: 'Arial Black', Arial, sans-serif;
         font-size: 64px;
         font-weight: bold;
         color: #00f0ff;
         text-shadow: 0 0 10px #00f0ff;
     }
 
+    /* Neonowy podtytuł */
     .neon-pink {
+        font-family: 'Arial Black', Arial, sans-serif;
         font-size: 28px;
         font-weight: bold;
         margin-top: 10px;
@@ -55,9 +59,10 @@
         text-shadow: 0 0 10px #FF69B4;
     }
 
-    /* PYKMC.PL z kolorami Minecraft */
+    /* Minecraftowy nagłówek PYKMC.PL */
     .pykmc-main {
         margin-top: 30px;
+        font-family: 'Minecraftia', monospace;
         font-size: 72px;
         font-weight: bold;
     }
@@ -79,7 +84,7 @@
         width: 100%;
     }
 
-    /* Przycisk */
+    /* Przycisk Minecraft */
     .pykmc-box {
         margin-top: 25px;
         background-color: #111;
@@ -99,8 +104,9 @@
         box-shadow: 0 0 25px #FF69B4;
     }
 
-    /* Tekst Minecraftowy na przycisku */
+    /* Tekst na przycisku w Minecraftowym stylu */
     .pykmc-box span {
+        font-family: 'Minecraftia', monospace;
         font-size: 36px;
         font-weight: bold;
         transition: transform 0.3s ease;
@@ -109,7 +115,6 @@
     .pykmc-box:hover span {
         transform: translateY(-5px);
     }
-
 </style>
 </head>
 <body>
@@ -117,15 +122,16 @@
 <canvas id="bgCanvas"></canvas>
 
 <div class="content">
+    <!-- Przywrócone neony -->
     <div class="neon-blue">KUPITEMKA.PL</div>
     <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-    <!-- PYKMC.PL z Minecraftowymi kolorami -->
+    <!-- Minecraftowy napis -->
     <div class="pykmc-main">
         <span class="pink">PYK</span><span class="yellow">MC.PL</span>
     </div>
 
-    <!-- Przycisk Minecraftowy -->
+    <!-- Przycisk w Minecraftowym stylu -->
     <div class="button-container">
         <a href="#pykmc" class="pykmc-box">
             <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
@@ -134,6 +140,7 @@
 </div>
 
 <script>
+/* Efekt animowanego tła */
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -145,7 +152,7 @@ window.addEventListener('resize', () => {
     height = canvas.height = window.innerHeight;
 });
 
-// Tworzymy kropki neonowe
+// Neonowe punkty
 const dots = [];
 const dotCount = 80;
 
