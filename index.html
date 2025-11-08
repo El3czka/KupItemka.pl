@@ -60,17 +60,15 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        gap: 150px; /* odstęp między blokami */
+        gap: 150px;
     }
 
-    /* Pojedynczy blok serwera */
     .server {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    /* Nagłówki */
     .server-name {
         font-family: 'Minecraftia', monospace;
         font-size: 72px;
@@ -81,10 +79,11 @@
     .yellow { color: #FFFF00; text-shadow: 0 0 15px #FFFF00; }
     .white { color: #FFFFFF; text-shadow: 0 0 15px #FFFFFF; }
 
-    /* Przycisk */
+    /* Ogólny przycisk */
     .pykmc-box {
+        position: relative;
         background-color: #111;
-        border: 2px solid #fff;
+        border: 2px solid transparent;
         border-radius: 8px;
         padding: 25px 80px;
         display: flex;
@@ -94,11 +93,7 @@
         text-decoration: none;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         margin-top: 40px;
-    }
-
-    .pykmc-box:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 25px #FF69B4;
+        overflow: hidden;
     }
 
     .pykmc-box span {
@@ -107,10 +102,48 @@
         font-weight: bold;
         transition: transform 0.3s ease;
         line-height: 1;
+        z-index: 2;
+        position: relative;
+    }
+
+    .pykmc-box:hover {
+        transform: scale(1.1);
     }
 
     .pykmc-box:hover span {
         transform: translateY(-5px);
+    }
+
+    /* Efekt poświaty na hover */
+    .pykmc-box::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 8px;
+        padding: 2px;
+        background: transparent;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        transition: all 0.4s ease;
+    }
+
+    /* ANARCHIA — pół na pół: białe i żółte */
+    .anarchia-btn::before {
+        background: linear-gradient(90deg, white 50%, #FFFF00 50%);
+    }
+
+    .anarchia-btn:hover::before {
+        box-shadow: 0 0 25px #FFFF00;
+    }
+
+    /* PYKMC — pół na pół: różowe i żółte */
+    .pykmc-btn::before {
+        background: linear-gradient(90deg, #FF69B4 50%, #FFFF00 50%);
+    }
+
+    .pykmc-btn:hover::before {
+        box-shadow: 0 0 25px #FF69B4;
     }
 </style>
 </head>
@@ -119,28 +152,28 @@
 <canvas id="bgCanvas"></canvas>
 
 <div class="content">
-    <!-- Nagłówek główny -->
+    <!-- Nagłówek -->
     <div class="neon-blue">KUPITEMKA.PL</div>
     <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-    <!-- Dwa serwery -->
+    <!-- Sekcja dwóch serwerów -->
     <div class="servers">
-        <!-- Lewa strona -->
+        <!-- ANARCHIA -->
         <div class="server">
             <div class="server-name">
                 <span class="white">ANARCHIA</span><span class="yellow">.GG</span>
             </div>
-            <a href="#anarchia" class="pykmc-box">
+            <a href="#anarchia" class="pykmc-box anarchia-btn">
                 <span class="white">ANARCHIA</span>
             </a>
         </div>
 
-        <!-- Prawa strona -->
+        <!-- PYKMC -->
         <div class="server">
             <div class="server-name">
                 <span class="pink">PYK</span><span class="yellow">MC.PL</span>
             </div>
-            <a href="#pykmc" class="pykmc-box">
+            <a href="#pykmc" class="pykmc-box pykmc-btn">
                 <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
             </a>
         </div>
@@ -148,7 +181,7 @@
 </div>
 
 <script>
-/* Efekt animowanego tła */
+/* Animowane tło */
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -177,8 +210,7 @@ for (let i = 0; i < dotCount; i++) {
 function animate() {
     ctx.clearRect(0, 0, width, height);
 
-    for (let i = 0; i < dots.length; i++) {
-        const d = dots[i];
+    for (const d of dots) {
         ctx.beginPath();
         ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
         ctx.fillStyle = d.color;
@@ -189,13 +221,12 @@ function animate() {
         d.x += d.dx;
         d.y += d.dy;
 
-        if (d.x < 0 || d.x > width) d.dx = -d.dx;
-        if (d.y < 0 || d.y > height) d.dy = -d.dy;
+        if (d.x < 0 || d.x > width) d.dx *= -1;
+        if (d.y < 0 || d.y > height) d.dy *= -1;
     }
 
     requestAnimationFrame(animate);
 }
-
 animate();
 </script>
 
