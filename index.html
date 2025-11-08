@@ -17,19 +17,19 @@ body, html {
     font-family: Arial, sans-serif;
     background: #000;
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .hidden { display: none; }
 
+/* Ekran wyboru urządzenia */
 #device-prompt {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
     gap: 20px;
 }
 
@@ -47,6 +47,7 @@ body, html {
     transform: scale(1.1);
 }
 
+/* Komunikat mobilny */
 .mobile-warning {
     font-size: 24px;
     color: #FF69B4;
@@ -54,8 +55,9 @@ body, html {
     padding: 20px;
 }
 
-/* Styl strony PC */
-#main-site {
+/* Strona PC */
+#glowna {
+    display: none;
     position: relative;
     width: 100%;
     height: 100%;
@@ -201,7 +203,7 @@ canvas {
     align-items: flex-start;
     gap: 50px;
     position: absolute;
-    bottom: 200px; /* podniesione bardziej */
+    bottom: 200px;
     flex-wrap: wrap;
 }
 
@@ -241,12 +243,11 @@ canvas {
     color: #aaa;
     line-height: 1.2;
 }
-
 </style>
 </head>
 <body>
 
-<!-- Pytanie o urządzenie -->
+<!-- Ekran wyboru urządzenia -->
 <div id="device-prompt">
     <h1>Na jakim urządzeniu jesteś?</h1>
     <button onclick="chooseDevice('pc')">PC</button>
@@ -254,7 +255,7 @@ canvas {
 </div>
 
 <!-- Strona główna PC -->
-<div id="main-site" class="hidden">
+<div id="glowna" class="hidden">
     <canvas id="bgCanvas"></canvas>
     <div class="content">
         <div class="neon-blue">KUPITEMKA.PL</div>
@@ -311,7 +312,9 @@ canvas {
 function chooseDevice(device) {
     document.getElementById('device-prompt').classList.add('hidden');
     if(device === 'pc') {
-        document.getElementById('main-site').classList.remove('hidden');
+        // Pokazuje stronę PC
+        document.getElementById('glowna').classList.remove('hidden');
+        location.hash = "glowna"; // przenosi do podstrony #glowna
     } else {
         document.getElementById('mobile-site').classList.remove('hidden');
     }
