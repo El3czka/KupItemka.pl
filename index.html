@@ -9,261 +9,317 @@
 <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
 
 <style>
-    body {
-        margin: 0;
-        font-family: 'Arial Black', Arial, sans-serif;
-        background: #000;
-        overflow: hidden;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-top: 80px;
-        text-align: center;
-        position: relative;
-        color: white;
-    }
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
 
-    canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 0;
-    }
+.hidden { display: none; }
 
-    .content {
-        position: relative;
-        z-index: 1;
-        flex: 1;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+#device-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
 
-    .neon-blue {
-        font-family: 'Arial Black', Arial, sans-serif;
-        font-size: 64px;
-        font-weight: bold;
-        color: #00f0ff;
-        text-shadow: 0 0 10px #00f0ff;
-    }
+#device-prompt button {
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    transition: all 0.3s ease;
+}
 
-    .neon-pink {
-        font-family: 'Arial Black', Arial, sans-serif;
-        font-size: 28px;
-        font-weight: bold;
-        margin-top: 10px;
-        color: #FF69B4;
-        text-shadow: 0 0 10px #FF69B4;
-    }
+#device-prompt button:hover {
+    transform: scale(1.1);
+}
 
-    .servers {
-        margin-top: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 150px;
-    }
+.mobile-warning {
+    font-size: 24px;
+    color: #FF69B4;
+    text-shadow: 0 0 10px #FF69B4;
+    padding: 20px;
+}
 
-    .server {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+/* Styl strony PC */
+#main-site {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 
-    .server-name {
-        font-family: 'Minecraftia', monospace;
-        font-size: 72px;
-        font-weight: bold;
-    }
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
 
-    .pink { color: #FF69B4; text-shadow: 0 0 15px #FF69B4; }
-    .yellow { color: #FFFF00; text-shadow: 0 0 15px #FFFF00; }
-    .white { color: #FFFFFF; text-shadow: 0 0 15px #FFFFFF; }
+.content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
-    /* Przyciski serwerów */
-    .pykmc-box {
-        position: relative;
-        background-color: #111;
-        border: 2px solid white;
-        border-radius: 8px;
-        padding: 25px 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        text-decoration: none;
-        transition: transform 0.3s ease;
-        margin-top: 40px;
-        overflow: hidden;
-    }
+.neon-blue {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+    color: #00f0ff;
+    text-shadow: 0 0 10px #00f0ff;
+    margin-top: 40px;
+}
 
-    .pykmc-box span {
-        font-family: 'Minecraftia', monospace;
-        font-size: 36px;
-        font-weight: bold;
-        transition: transform 0.3s ease;
-        line-height: 1;
-        z-index: 2;
-        position: relative;
-    }
+.neon-pink {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #FF69B4;
+    text-shadow: 0 0 10px #FF69B4;
+}
 
-    .pykmc-box:hover {
-        transform: scale(1.1);
-    }
+.servers {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 150px;
+}
 
-    .pykmc-box:hover span {
-        transform: translateY(-5px);
-    }
+.server {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    .pykmc-box::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 8px;
-        z-index: 1;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
+.server-name {
+    font-family: 'Minecraftia', monospace;
+    font-size: 72px;
+    font-weight: bold;
+}
 
-    .anarchia-btn::after {
-        background: radial-gradient(circle at left, white, transparent 70%), 
-                    radial-gradient(circle at right, #FFFF00, transparent 70%);
-    }
+.pink { color: #FF69B4; text-shadow: 0 0 15px #FF69B4; }
+.yellow { color: #FFFF00; text-shadow: 0 0 15px #FFFF00; }
+.white { color: #FFFFFF; text-shadow: 0 0 15px #FFFFFF; }
 
-    .anarchia-btn:hover::after {
-        opacity: 1;
-        box-shadow: 0 0 25px #FFFF00, 0 0 25px white;
-    }
+.pykmc-box {
+    position: relative;
+    background-color: #111;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 25px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    margin-top: 40px;
+    overflow: hidden;
+}
 
-    .pykmc-btn::after {
-        background: radial-gradient(circle at left, #FF69B4, transparent 70%), 
-                    radial-gradient(circle at right, #FFFF00, transparent 70%);
-    }
+.pykmc-box span {
+    font-family: 'Minecraftia', monospace;
+    font-size: 36px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    line-height: 1;
+    z-index: 2;
+    position: relative;
+}
 
-    .pykmc-btn:hover::after {
-        opacity: 1;
-        box-shadow: 0 0 25px #FF69B4, 0 0 25px #FFFF00;
-    }
+.pykmc-box:hover {
+    transform: scale(1.1);
+}
 
-    .coming-soon {
-        font-family: 'Arial Black', Arial, sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-        color: #ffffff;
-        text-shadow: 0 0 10px #ffffff;
-        margin-top: 10px;
-        opacity: 0.9;
-    }
+.pykmc-box:hover span {
+    transform: translateY(-5px);
+}
 
-    /* Dolne przyciski info - wyżej i mniejsze */
-    .bottom-buttons {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 50px;
-        position: absolute;
-        bottom: 150px; /* wyżej od poprzednio */
-        flex-wrap: wrap;
-    }
+.pykmc-box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
 
-    .info-box {
-        background-color: #111;
-        border: 2px solid white;
-        border-radius: 8px;
-        padding: 12px 18px;
-        width: 220px;
-        height: 70px; /* mniejsza wysokość */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: #ccc;
-        font-family: 'Arial Black', Arial, sans-serif;
-        text-align: center;
-        line-height: 1.2;
-        box-shadow: 0 0 15px #ffffff20;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+.anarchia-btn::after {
+    background: radial-gradient(circle at left, white, transparent 70%), 
+                radial-gradient(circle at right, #FFFF00, transparent 70%);
+}
 
-    .info-box:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 25px #ffffff40;
-    }
+.anarchia-btn:hover::after {
+    opacity: 1;
+    box-shadow: 0 0 25px #FFFF00, 0 0 25px white;
+}
 
-    .info-box .main-text {
-        font-size: 18px;
-        color: #fff;
-        font-weight: bold;
-        margin-bottom: 2px;
-    }
+.pykmc-btn::after {
+    background: radial-gradient(circle at left, #FF69B4, transparent 70%), 
+                radial-gradient(circle at right, #FFFF00, transparent 70%);
+}
 
-    .info-box .sub-text {
-        font-size: 13px;
-        color: #aaa;
-        line-height: 1.2;
-    }
+.pykmc-btn:hover::after {
+    opacity: 1;
+    box-shadow: 0 0 25px #FF69B4, 0 0 25px #FFFF00;
+}
+
+.coming-soon {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffffff;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+.bottom-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    position: absolute;
+    bottom: 200px; /* podniesione bardziej */
+    flex-wrap: wrap;
+}
+
+.info-box {
+    background-color: #111;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 12px 18px;
+    width: 220px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    font-family: 'Arial Black', Arial, sans-serif;
+    text-align: center;
+    line-height: 1.2;
+    box-shadow: 0 0 15px #ffffff20;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #ffffff40;
+}
+
+.info-box .main-text {
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.info-box .sub-text {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.2;
+}
 
 </style>
 </head>
 <body>
 
-<canvas id="bgCanvas"></canvas>
+<!-- Pytanie o urządzenie -->
+<div id="device-prompt">
+    <h1>Na jakim urządzeniu jesteś?</h1>
+    <button onclick="chooseDevice('pc')">PC</button>
+    <button onclick="chooseDevice('mobile')">Telefon</button>
+</div>
 
-<div class="content">
-    <!-- Nagłówek -->
-    <div class="neon-blue">KUPITEMKA.PL</div>
-    <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
+<!-- Strona główna PC -->
+<div id="main-site" class="hidden">
+    <canvas id="bgCanvas"></canvas>
+    <div class="content">
+        <div class="neon-blue">KUPITEMKA.PL</div>
+        <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-    <!-- Sekcja dwóch serwerów -->
-    <div class="servers">
-        <!-- ANARCHIA -->
-        <div class="server">
-            <div class="server-name">
-                <span class="white">ANARCHIA</span><span class="yellow">.GG</span>
+        <div class="servers">
+            <div class="server">
+                <div class="server-name">
+                    <span class="white">ANARCHIA</span><span class="yellow">.GG</span>
+                </div>
+                <a href="#anarchia" class="pykmc-box anarchia-btn">
+                    <span class="white">ANARCHIA</span>
+                </a>
+                <div class="coming-soon">Coming soon...</div>
             </div>
-            <a href="#anarchia" class="pykmc-box anarchia-btn">
-                <span class="white">ANARCHIA</span>
-            </a>
-            <div class="coming-soon">Coming soon...</div>
+
+            <div class="server">
+                <div class="server-name">
+                    <span class="pink">PYK</span><span class="yellow">MC.PL</span>
+                </div>
+                <a href="#pykmc" class="pykmc-box pykmc-btn">
+                    <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
+                </a>
+            </div>
         </div>
 
-        <!-- PYKMC -->
-        <div class="server">
-            <div class="server-name">
-                <span class="pink">PYK</span><span class="yellow">MC.PL</span>
+        <div class="bottom-buttons">
+            <div class="info-box">
+                <div class="main-text">4+</div>
+                <div class="sub-text">Legitchecków</div>
             </div>
-            <a href="#pykmc" class="pykmc-box pykmc-btn">
-                <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
-            </a>
+            <div class="info-box">
+                <div class="main-text">Częste konkursy</div>
+                <div class="sub-text">Promocje w weekendy i nie tylko!</div>
+            </div>
+            <div class="info-box">
+                <div class="main-text">Bezpiecznie i tanio</div>
+                <div class="sub-text">Szybkie i bezpieczne usługi</div>
+            </div>
         </div>
     </div>
+</div>
 
-    <!-- Dolne przyciski informacyjne -->
-    <div class="bottom-buttons">
-        <div class="info-box">
-            <div class="main-text">4+</div>
-            <div class="sub-text">Legitchecków</div>
-        </div>
-        <div class="info-box">
-            <div class="main-text">Częste konkursy</div>
-            <div class="sub-text">Promocje w weekendy i nie tylko!</div>
-        </div>
-        <div class="info-box">
-            <div class="main-text">Bezpiecznie i tanio</div>
-            <div class="sub-text">Szybkie i bezpieczne usługi</div>
-        </div>
+<!-- Wersja mobilna -->
+<div id="mobile-site" class="hidden">
+    <div class="mobile-warning">
+        Ta strona nie jest jeszcze zoptymalizowana na telefon.  
+        Spróbuj otworzyć ją na PC.
     </div>
-
 </div>
 
 <script>
-/* Animowane tło */
+// Funkcja wyboru urządzenia
+function chooseDevice(device) {
+    document.getElementById('device-prompt').classList.add('hidden');
+    if(device === 'pc') {
+        document.getElementById('main-site').classList.remove('hidden');
+    } else {
+        document.getElementById('mobile-site').classList.remove('hidden');
+    }
+}
+
+// Animowane tło dla PC
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
-
 let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
 
@@ -274,7 +330,6 @@ window.addEventListener('resize', () => {
 
 const dots = [];
 const dotCount = 80;
-
 for (let i = 0; i < dotCount; i++) {
     dots.push({
         x: Math.random() * width,
@@ -288,7 +343,6 @@ for (let i = 0; i < dotCount; i++) {
 
 function animate() {
     ctx.clearRect(0, 0, width, height);
-
     for (const d of dots) {
         ctx.beginPath();
         ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
@@ -296,17 +350,22 @@ function animate() {
         ctx.shadowColor = d.color;
         ctx.shadowBlur = 10;
         ctx.fill();
-
         d.x += d.dx;
         d.y += d.dy;
-
         if (d.x < 0 || d.x > width) d.dx *= -1;
         if (d.y < 0 || d.y > height) d.dy *= -1;
     }
-
     requestAnimationFrame(animate);
 }
 animate();
+
+// Automatyczne wykrycie urządzenia
+window.onload = function() {
+    const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+    if(isMobile) {
+        chooseDevice('mobile');
+    }
+};
 </script>
 
 </body>
