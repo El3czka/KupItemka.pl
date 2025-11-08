@@ -3,24 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KupItemka.pl</title>
+    <title>Strona</title>
     <style>
+        /* Styl dla całej strony */
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background: linear-gradient(135deg, #1a1a1a, #000000);
+            height: 100vh;
         }
-        h1 {
+
+        /* Pasek u góry */
+        header {
+            background-color: white;
+            height: 60px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Opcjonalnie możesz dodać jakieś elementy w nagłówku */
+        nav {
+            margin-left: auto;
+        }
+
+        nav a {
+            margin-left: 15px;
+            text-decoration: none;
             color: #333;
-            font-size: 48px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>KupItemka.pl</h1>
+    <header>
+        <!-- Nagłówek pusty lub z linkami -->
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">O nas</a>
+            <a href="#">Kontakt</a>
+        </nav>
+    </header>
+
+    <!-- Reszta strony jest pusta -->
 </body>
 </html>
