@@ -4,21 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KUPITEMKA.PL</title>
+
+<!-- Minecraftowy font -->
+<link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
+
 <style>
     body {
         margin: 0;
-        font-family: 'Arial Black', Arial, sans-serif;
+        font-family: 'Minecraftia', monospace;
         background: #000;
-        overflow: hidden; /* ukrywa scroll */
+        overflow: hidden;
         height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start; 
+        justify-content: flex-start;
         padding-top: 80px;
-        color: white;
         text-align: center;
         position: relative;
+        color: white;
     }
 
     /* Canvas w tle */
@@ -29,13 +33,13 @@
         z-index: 0;
     }
 
-    /* Treść nad canvasem */
+    /* Treść nad tłem */
     .content {
         position: relative;
         z-index: 1;
     }
 
-    /* Neonowe nagłówki */
+    /* Nagłówek neonowy */
     .neon-blue {
         font-size: 64px;
         font-weight: bold;
@@ -51,61 +55,61 @@
         text-shadow: 0 0 10px #FF69B4;
     }
 
-    /* Nagłówek PYKMC.PL obniżony */
+    /* PYKMC.PL z kolorami Minecraft */
     .pykmc-main {
         margin-top: 30px;
-        font-size: 64px;
+        font-size: 72px;
         font-weight: bold;
-        background: linear-gradient(90deg, #FF69B4, #FFFF00);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
 
-    /* Kontener dla przycisku — wyśrodkowanie */
+    .pink {
+        color: #FF69B4;
+        text-shadow: 0 0 15px #FF69B4;
+    }
+
+    .yellow {
+        color: #FFFF00;
+        text-shadow: 0 0 15px #FFFF00;
+    }
+
+    /* Kontener przycisku */
     .button-container {
         display: flex;
         justify-content: center;
         width: 100%;
     }
 
-    /* Prostokątny przycisk */
+    /* Przycisk */
     .pykmc-box {
-        margin-top: 20px;
-        background-color: #222;
+        margin-top: 25px;
+        background-color: #111;
         border: 2px solid #fff;
-        border-radius: 10px;
-        width: 300px;
-        height: 100px; 
+        border-radius: 8px;
+        padding: 20px 60px;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
         text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Efekt hover całego przycisku */
     .pykmc-box:hover {
         transform: scale(1.1);
         box-shadow: 0 0 25px #FF69B4;
     }
 
-    /* Tekst w przycisku */
+    /* Tekst Minecraftowy na przycisku */
     .pykmc-box span {
-        font-size: 32px;
+        font-size: 36px;
         font-weight: bold;
-        background: linear-gradient(90deg, #FF69B4, #FFFF00);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         transition: transform 0.3s ease;
     }
 
-    /* Podskok tekstu w przycisku */
     .pykmc-box:hover span {
         transform: translateY(-5px);
     }
+
 </style>
 </head>
 <body>
@@ -116,12 +120,15 @@
     <div class="neon-blue">KUPITEMKA.PL</div>
     <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-    <div class="pykmc-main">PYKMC.PL</div>
+    <!-- PYKMC.PL z Minecraftowymi kolorami -->
+    <div class="pykmc-main">
+        <span class="pink">PYK</span><span class="yellow">MC.PL</span>
+    </div>
 
-    <!-- Wyśrodkowany przycisk -->
+    <!-- Przycisk Minecraftowy -->
     <div class="button-container">
         <a href="#pykmc" class="pykmc-box">
-            <span>PYKMC</span>
+            <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
         </a>
     </div>
 </div>
@@ -156,7 +163,6 @@ for (let i = 0; i < dotCount; i++) {
 function animate() {
     ctx.clearRect(0, 0, width, height);
 
-    // Rysujemy kropki
     for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
         ctx.beginPath();
@@ -166,11 +172,9 @@ function animate() {
         ctx.shadowBlur = 10;
         ctx.fill();
 
-        // Aktualizujemy pozycję
         d.x += d.dx;
         d.y += d.dy;
 
-        // Odbicia od krawędzi
         if(d.x < 0 || d.x > width) d.dx = -d.dx;
         if(d.y < 0 || d.y > height) d.dy = -d.dy;
     }
