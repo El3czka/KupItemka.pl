@@ -9,7 +9,6 @@
 <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
 
 <style>
-    /* Styl główny strony */
     body {
         margin: 0;
         font-family: 'Arial Black', Arial, sans-serif;
@@ -26,7 +25,6 @@
         color: white;
     }
 
-    /* Canvas – animowane tło */
     canvas {
         position: absolute;
         top: 0;
@@ -34,13 +32,11 @@
         z-index: 0;
     }
 
-    /* Warstwa tekstowa */
     .content {
         position: relative;
         z-index: 1;
     }
 
-    /* Neonowy tytuł */
     .neon-blue {
         font-family: 'Arial Black', Arial, sans-serif;
         font-size: 64px;
@@ -49,7 +45,6 @@
         text-shadow: 0 0 10px #00f0ff;
     }
 
-    /* Neonowy podtytuł */
     .neon-pink {
         font-family: 'Arial Black', Arial, sans-serif;
         font-size: 28px;
@@ -59,41 +54,34 @@
         text-shadow: 0 0 10px #FF69B4;
     }
 
-    /* Sekcja Minecraft: PYKMC.PL i przycisk */
-    .pykmc-section {
+    /* Kontener dla obu serwerów */
+    .servers {
         margin-top: 100px;
-        transform: translateX(80px); /* przesunięcie w prawo */
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 150px; /* odstęp między blokami */
+    }
+
+    /* Pojedynczy blok serwera */
+    .server {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    /* Napis PYKMC.PL */
-    .pykmc-main {
+    /* Nagłówki */
+    .server-name {
         font-family: 'Minecraftia', monospace;
         font-size: 72px;
         font-weight: bold;
     }
 
-    .pink {
-        color: #FF69B4;
-        text-shadow: 0 0 15px #FF69B4;
-    }
+    .pink { color: #FF69B4; text-shadow: 0 0 15px #FF69B4; }
+    .yellow { color: #FFFF00; text-shadow: 0 0 15px #FFFF00; }
+    .white { color: #FFFFFF; text-shadow: 0 0 15px #FFFFFF; }
 
-    .yellow {
-        color: #FFFF00;
-        text-shadow: 0 0 15px #FFFF00;
-    }
-
-    /* Kontener przycisku */
-    .button-container {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin-top: 60px;
-    }
-
-    /* Przycisk Minecraft */
+    /* Przycisk */
     .pykmc-box {
         background-color: #111;
         border: 2px solid #fff;
@@ -105,6 +93,7 @@
         cursor: pointer;
         text-decoration: none;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-top: 40px;
     }
 
     .pykmc-box:hover {
@@ -112,7 +101,6 @@
         box-shadow: 0 0 25px #FF69B4;
     }
 
-    /* Tekst na przycisku */
     .pykmc-box span {
         font-family: 'Minecraftia', monospace;
         font-size: 36px;
@@ -131,17 +119,27 @@
 <canvas id="bgCanvas"></canvas>
 
 <div class="content">
-    <!-- Nagłówek -->
+    <!-- Nagłówek główny -->
     <div class="neon-blue">KUPITEMKA.PL</div>
     <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-    <!-- Sekcja PYKMC przesunięta w prawo -->
-    <div class="pykmc-section">
-        <div class="pykmc-main">
-            <span class="pink">PYK</span><span class="yellow">MC.PL</span>
+    <!-- Dwa serwery -->
+    <div class="servers">
+        <!-- Lewa strona -->
+        <div class="server">
+            <div class="server-name">
+                <span class="white">ANARCHIA</span><span class="yellow">.GG</span>
+            </div>
+            <a href="#anarchia" class="pykmc-box">
+                <span class="white">ANARCHIA</span>
+            </a>
         </div>
 
-        <div class="button-container">
+        <!-- Prawa strona -->
+        <div class="server">
+            <div class="server-name">
+                <span class="pink">PYK</span><span class="yellow">MC.PL</span>
+            </div>
             <a href="#pykmc" class="pykmc-box">
                 <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
             </a>
@@ -162,7 +160,6 @@ window.addEventListener('resize', () => {
     height = canvas.height = window.innerHeight;
 });
 
-// Neonowe punkty
 const dots = [];
 const dotCount = 80;
 
@@ -192,8 +189,8 @@ function animate() {
         d.x += d.dx;
         d.y += d.dy;
 
-        if(d.x < 0 || d.x > width) d.dx = -d.dx;
-        if(d.y < 0 || d.y > height) d.dy = -d.dy;
+        if (d.x < 0 || d.x > width) d.dx = -d.dx;
+        if (d.y < 0 || d.y > height) d.dy = -d.dy;
     }
 
     requestAnimationFrame(animate);
