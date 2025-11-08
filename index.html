@@ -56,8 +56,8 @@ body, html {
 }
 
 /* Strona PC */
-#glowna {
-    display: none;
+#main-site {
+    display: none; /* ukryte na start */
     position: relative;
     width: 100%;
     height: 100%;
@@ -255,7 +255,7 @@ canvas {
 </div>
 
 <!-- Strona główna PC -->
-<div id="glowna" class="hidden">
+<div id="main-site">
     <canvas id="bgCanvas"></canvas>
     <div class="content">
         <div class="neon-blue">KUPITEMKA.PL</div>
@@ -312,11 +312,9 @@ canvas {
 function chooseDevice(device) {
     document.getElementById('device-prompt').classList.add('hidden');
     if(device === 'pc') {
-        // Pokazuje stronę PC
-        document.getElementById('glowna').classList.remove('hidden');
-        location.hash = "glowna"; // przenosi do podstrony #glowna
+        document.getElementById('main-site').style.display = 'block';
     } else {
-        document.getElementById('mobile-site').classList.remove('hidden');
+        document.getElementById('mobile-site').style.display = 'block';
     }
 }
 
