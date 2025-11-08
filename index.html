@@ -20,33 +20,30 @@
             width: 100%;
             display: flex;
             align-items: center;
+            justify-content: flex-end; /* przesunięcie treści w prawo */
             padding: 0 20px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        /* Opcjonalnie możesz dodać jakieś elementy w nagłówku */
-        nav {
-            margin-left: auto;
+        /* Napis STRONA GŁÓWNA */
+        .home-link {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease; /* smooth przejście koloru */
         }
 
-        nav a {
-            margin-left: 15px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
+        .home-link:hover {
+            color: yellow; /* kolor po najechaniu */
         }
     </style>
 </head>
 <body>
     <header>
-        <!-- Nagłówek pusty lub z linkami -->
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">O nas</a>
-            <a href="#">Kontakt</a>
-        </nav>
+        <a href="#" class="home-link">STRONA GŁÓWNA</a>
     </header>
 
-    <!-- Reszta strony jest pusta -->
+    <!-- Reszta strony pozostaje pusta -->
 </body>
 </html>
