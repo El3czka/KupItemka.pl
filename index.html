@@ -83,7 +83,7 @@
     .pykmc-box {
         position: relative;
         background-color: #111;
-        border: 2px solid transparent;
+        border: 2px solid white; /* zawsze biała obramówka */
         border-radius: 8px;
         padding: 25px 80px;
         display: flex;
@@ -91,7 +91,7 @@
         justify-content: center;
         cursor: pointer;
         text-decoration: none;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.3s ease;
         margin-top: 40px;
         overflow: hidden;
     }
@@ -114,36 +114,37 @@
         transform: translateY(-5px);
     }
 
-    /* Efekt poświaty na hover */
-    .pykmc-box::before {
+    /* Poświata */
+    .pykmc-box::after {
         content: "";
         position: absolute;
         inset: 0;
         border-radius: 8px;
-        padding: 2px;
-        background: transparent;
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        transition: all 0.4s ease;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.4s ease;
     }
 
-    /* ANARCHIA — pół na pół: białe i żółte */
-    .anarchia-btn::before {
-        background: linear-gradient(90deg, white 50%, #FFFF00 50%);
+    /* ANARCHIA – biało-żółta poświata */
+    .anarchia-btn::after {
+        background: radial-gradient(circle at left, white, transparent 70%), 
+                    radial-gradient(circle at right, #FFFF00, transparent 70%);
     }
 
-    .anarchia-btn:hover::before {
-        box-shadow: 0 0 25px #FFFF00;
+    .anarchia-btn:hover::after {
+        opacity: 1;
+        box-shadow: 0 0 25px #FFFF00, 0 0 25px white;
     }
 
-    /* PYKMC — pół na pół: różowe i żółte */
-    .pykmc-btn::before {
-        background: linear-gradient(90deg, #FF69B4 50%, #FFFF00 50%);
+    /* PYKMC – różowo-żółta poświata */
+    .pykmc-btn::after {
+        background: radial-gradient(circle at left, #FF69B4, transparent 70%), 
+                    radial-gradient(circle at right, #FFFF00, transparent 70%);
     }
 
-    .pykmc-btn:hover::before {
-        box-shadow: 0 0 25px #FF69B4;
+    .pykmc-btn:hover::after {
+        opacity: 1;
+        box-shadow: 0 0 25px #FF69B4, 0 0 25px #FFFF00;
     }
 </style>
 </head>
