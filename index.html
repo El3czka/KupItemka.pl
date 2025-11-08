@@ -26,7 +26,7 @@
         color: white;
     }
 
-    /* Canvas – tło animowane */
+    /* Canvas – animowane tło */
     canvas {
         position: absolute;
         top: 0;
@@ -34,7 +34,7 @@
         z-index: 0;
     }
 
-    /* Warstwa tekstu */
+    /* Warstwa tekstowa */
     .content {
         position: relative;
         z-index: 1;
@@ -61,7 +61,7 @@
 
     /* Minecraftowy nagłówek PYKMC.PL */
     .pykmc-main {
-        margin-top: 30px;
+        margin-top: 100px; /* było 30px – teraz niżej */
         font-family: 'Minecraftia', monospace;
         font-size: 72px;
         font-weight: bold;
@@ -82,15 +82,15 @@
         display: flex;
         justify-content: center;
         width: 100%;
+        margin-top: 60px; /* było 25px – teraz niżej */
     }
 
     /* Przycisk Minecraft */
     .pykmc-box {
-        margin-top: 25px;
         background-color: #111;
         border: 2px solid #fff;
         border-radius: 8px;
-        padding: 20px 60px;
+        padding: 25px 80px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -104,12 +104,13 @@
         box-shadow: 0 0 25px #FF69B4;
     }
 
-    /* Tekst na przycisku w Minecraftowym stylu */
+    /* Tekst na przycisku */
     .pykmc-box span {
         font-family: 'Minecraftia', monospace;
         font-size: 36px;
         font-weight: bold;
         transition: transform 0.3s ease;
+        line-height: 1; /* dokładne wyśrodkowanie pionowe */
     }
 
     .pykmc-box:hover span {
@@ -122,16 +123,16 @@
 <canvas id="bgCanvas"></canvas>
 
 <div class="content">
-    <!-- Przywrócone neony -->
+    <!-- Nagłówek -->
     <div class="neon-blue">KUPITEMKA.PL</div>
     <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-    <!-- Minecraftowy napis -->
+    <!-- PYKMC.PL -->
     <div class="pykmc-main">
         <span class="pink">PYK</span><span class="yellow">MC.PL</span>
     </div>
 
-    <!-- Przycisk w Minecraftowym stylu -->
+    <!-- Przycisk -->
     <div class="button-container">
         <a href="#pykmc" class="pykmc-box">
             <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
