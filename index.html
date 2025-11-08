@@ -23,7 +23,7 @@
         .neon-blue {
             font-size: 64px;
             font-weight: bold;
-            color: #00f0ff; /* jasnoniebieski */
+            color: #00f0ff;
             text-shadow: 0 0 10px #00f0ff;
         }
 
@@ -31,13 +31,13 @@
             font-size: 28px;
             font-weight: bold;
             margin-top: 10px;
-            color: #FF69B4; /* jasnoróżowy */
+            color: #FF69B4;
             text-shadow: 0 0 10px #FF69B4;
         }
 
-        /* Nagłówek PYKMC.PL */
+        /* Nagłówek PYKMC.PL obniżony */
         .pykmc-main {
-            margin-top: 60px;
+            margin-top: 30px; /* obniżone w dół */
             font-size: 64px;
             font-weight: bold;
             background: linear-gradient(90deg, #FF69B4, #FFFF00);
@@ -48,7 +48,7 @@
 
         /* Prostokątny przycisk */
         .pykmc-box {
-            margin-top: 40px;
+            margin-top: 20px;
             background-color: #222;
             border: 2px solid #fff;
             border-radius: 10px;
@@ -62,11 +62,13 @@
             text-decoration: none;
         }
 
+        /* Efekt hover całego przycisku */
         .pykmc-box:hover {
             transform: scale(1.1);
             box-shadow: 0 0 25px #FF69B4;
         }
 
+        /* Napis w przycisku */
         .pykmc-box span {
             font-size: 32px;
             font-weight: bold;
@@ -74,6 +76,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease; /* do animacji podskoku */
+        }
+
+        /* Podskok tekstu w przycisku przy hover */
+        .pykmc-box:hover span {
+            transform: translateY(-5px);
         }
 
     </style>
@@ -83,7 +91,7 @@
     <div class="neon-blue">KupItemka.pl</div>
     <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-    <!-- PYKMC.PL tam, gdzie był przycisk -->
+    <!-- PYKMC.PL obniżone -->
     <div class="pykmc-main">PYKMC.PL</div>
 
     <!-- Przyciski -->
