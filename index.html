@@ -1,102 +1,175 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KupItemka.pl</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial Black', Arial, sans-serif;
-            background: linear-gradient(135deg, #1a1a1a, #000000);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start; 
-            padding-top: 80px;
-            color: white;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KupItemka.pl</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Arial Black', Arial, sans-serif;
+        background: #000;
+        overflow: hidden; /* ukrywa scroll */
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; 
+        padding-top: 80px;
+        color: white;
+        text-align: center;
+        position: relative;
+    }
 
-        /* Neonowy efekt prosty, bez błysków */
-        .neon-blue {
-            font-size: 64px;
-            font-weight: bold;
-            color: #00f0ff;
-            text-shadow: 0 0 10px #00f0ff;
-        }
+    /* Canvas w tle */
+    canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
 
-        .neon-pink {
-            font-size: 28px;
-            font-weight: bold;
-            margin-top: 10px;
-            color: #FF69B4;
-            text-shadow: 0 0 10px #FF69B4;
-        }
+    /* Treść nad canvasem */
+    .content {
+        position: relative;
+        z-index: 1;
+    }
 
-        /* Nagłówek PYKMC.PL obniżony */
-        .pykmc-main {
-            margin-top: 30px; /* obniżone w dół */
-            font-size: 64px;
-            font-weight: bold;
-            background: linear-gradient(90deg, #FF69B4, #FFFF00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-        }
+    /* Neonowy efekt prosty, bez błysków */
+    .neon-blue {
+        font-size: 64px;
+        font-weight: bold;
+        color: #00f0ff;
+        text-shadow: 0 0 10px #00f0ff;
+    }
 
-        /* Prostokątny przycisk */
-        .pykmc-box {
-            margin-top: 20px;
-            background-color: #222;
-            border: 2px solid #fff;
-            border-radius: 10px;
-            width: 300px;
-            height: 100px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-        }
+    .neon-pink {
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 10px;
+        color: #FF69B4;
+        text-shadow: 0 0 10px #FF69B4;
+    }
 
-        /* Efekt hover całego przycisku */
-        .pykmc-box:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 25px #FF69B4;
-        }
+    /* Nagłówek PYKMC.PL obniżony */
+    .pykmc-main {
+        margin-top: 30px;
+        font-size: 64px;
+        font-weight: bold;
+        background: linear-gradient(90deg, #FF69B4, #FFFF00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
 
-        /* Napis w przycisku */
-        .pykmc-box span {
-            font-size: 32px;
-            font-weight: bold;
-            background: linear-gradient(90deg, #FF69B4, #FFFF00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease; /* do animacji podskoku */
-        }
+    /* Prostokątny przycisk */
+    .pykmc-box {
+        margin-top: 20px;
+        background-color: #222;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        width: 300px;
+        height: 100px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+    }
 
-        /* Podskok tekstu w przycisku przy hover */
-        .pykmc-box:hover span {
-            transform: translateY(-5px);
-        }
+    /* Efekt hover całego przycisku */
+    .pykmc-box:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 25px #FF69B4;
+    }
 
-    </style>
+    /* Napis w przycisku */
+    .pykmc-box span {
+        font-size: 32px;
+        font-weight: bold;
+        background: linear-gradient(90deg, #FF69B4, #FFFF00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        transition: transform 0.3s ease; /* do animacji podskoku */
+    }
+
+    /* Podskok tekstu w przycisku przy hover */
+    .pykmc-box:hover span {
+        transform: translateY(-5px);
+    }
+</style>
 </head>
 <body>
-    <!-- Neonowy nagłówek -->
+
+<canvas id="bgCanvas"></canvas>
+
+<div class="content">
     <div class="neon-blue">KupItemka.pl</div>
     <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-    <!-- PYKMC.PL obniżone -->
     <div class="pykmc-main">PYKMC.PL</div>
 
-    <!-- Przyciski -->
     <a href="#pykmc" class="pykmc-box">
         <span>PYKMC</span>
     </a>
+</div>
+
+<script>
+const canvas = document.getElementById('bgCanvas');
+const ctx = canvas.getContext('2d');
+
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+});
+
+// Tworzymy kropki neonowe
+const dots = [];
+const dotCount = 80;
+
+for (let i = 0; i < dotCount; i++) {
+    dots.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 3 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5,
+        color: Math.random() < 0.5 ? '#00f0ff' : '#FF69B4'
+    });
+}
+
+function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    // Rysujemy kropki
+    for (let i = 0; i < dots.length; i++) {
+        const d = dots[i];
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
+        ctx.fillStyle = d.color;
+        ctx.shadowColor = d.color;
+        ctx.shadowBlur = 10;
+        ctx.fill();
+
+        // Aktualizujemy pozycję
+        d.x += d.dx;
+        d.y += d.dy;
+
+        // Odbijamy od krawędzi
+        if(d.x < 0 || d.x > width) d.dx = -d.dx;
+        if(d.y < 0 || d.y > height) d.dy = -d.dy;
+    }
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
 </body>
 </html>
