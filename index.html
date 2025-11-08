@@ -25,7 +25,7 @@
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: center; /* wyśrodkowanie treści */
+            justify-content: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             position: fixed;
             top: 0;
@@ -37,51 +37,51 @@
             font-weight: bold;
             text-decoration: none;
             font-size: 18px;
-            transition: color 0.3s ease; /* smooth przejście koloru */
+            transition: color 0.3s ease;
         }
 
         .home-link:hover {
-            color: yellow; /* kolor po najechaniu */
+            color: yellow;
         }
 
-        /* Główny tekst lekko nad środkiem z efektami CSS */
+        /* Główny tekst lekko nad środkiem z gradientem żółto-różowym */
         .main-text {
-            margin-top: 80px; /* trochę poniżej paska */
+            margin-top: 80px; 
             font-size: 64px;
             font-weight: bold;
             text-align: center;
             letter-spacing: 3px;
-            background: linear-gradient(90deg, #FFD700, #FF8C00);
+            background: linear-gradient(90deg, #FFD700, #FF69B4); /* złoto-różowy */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
         }
 
-        /* Prostokątna ramka z napisem */
+        /* Prostokątny przycisk dopasowany do tekstu */
         .pykmc-box {
             margin-top: 40px;
             background-color: #222;
             border: 2px solid #fff;
             border-radius: 10px;
-            width: 220px;
-            height: 100px; /* niższa niż wcześniej */
-            display: flex;
+            padding: 15px 40px; /* automatyczne dopasowanie szerokości do tekstu */
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
         }
 
         .pykmc-box:hover {
-            transform: scale(1.1); /* lekko powiększa */
-            box-shadow: 0 0 20px #FFD700; /* efekt podświetlenia */
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #FFD700;
         }
 
-        /* Napis w ramce z efektem CSS */
+        /* Napis w przycisku z gradientem żółto-różowym */
         .pykmc-box span {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
-            background: linear-gradient(90deg, #00FFFF, #0080FF);
+            background: linear-gradient(90deg, #FFD700, #FF69B4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
@@ -97,7 +97,7 @@
     <!-- Główny tekst -->
     <div class="main-text">PYKMC.PL</div>
 
-    <!-- Prostokątna ramka z napisem -->
+    <!-- Prostokątny przycisk dopasowany do tekstu -->
     <a href="#pykmc" class="pykmc-box">
         <span>PYKMC</span>
     </a>
