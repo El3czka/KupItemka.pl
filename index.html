@@ -60,7 +60,7 @@ html, body {
     display: none; /* ukryta na starcie */
     position: relative;
     width: 100%;
-    min-height: 100vh; /* pełna wysokość */
+    height: 100vh; /* pełna wysokość */
 }
 
 canvas {
@@ -70,21 +70,26 @@ canvas {
     z-index: 0;
 }
 
-.content {
+.content-wrapper {
     position: relative;
     z-index: 1;
     width: 100%;
-    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* górna część przy górze, dolna przy dole */
 }
 
-/* Nagłówki blisko góry */
+.content-top {
+    margin-top: 30px;
+}
+
 .neon-blue {
     font-family: 'Arial Black', Arial, sans-serif;
     font-size: 64px;
     font-weight: bold;
     color: #00f0ff;
     text-shadow: 0 0 10px #00f0ff;
-    margin-top: 50px; /* zmniejszone, bliżej góry */
 }
 
 .neon-pink {
@@ -97,7 +102,7 @@ canvas {
 }
 
 .servers {
-    margin-top: 40px; /* zmniejszone, bliżej nagłówków */
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -199,9 +204,8 @@ canvas {
     justify-content: center;
     align-items: flex-start;
     gap: 50px;
-    position: absolute;
-    bottom: 40px;
     flex-wrap: wrap;
+    margin-bottom: 40px; /* przyklejone do dołu */
 }
 
 .info-box {
@@ -254,28 +258,30 @@ canvas {
 <!-- Strona główna PC -->
 <div id="main-site">
     <canvas id="bgCanvas"></canvas>
-    <div class="content">
-        <div class="neon-blue">KUPITEMKA.PL</div>
-        <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
+    <div class="content-wrapper">
+        <div class="content-top">
+            <div class="neon-blue">KUPITEMKA.PL</div>
+            <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-        <div class="servers">
-            <div class="server">
-                <div class="server-name">
-                    <span class="white">ANARCHIA</span><span class="yellow">.GG</span>
+            <div class="servers">
+                <div class="server">
+                    <div class="server-name">
+                        <span class="white">ANARCHIA</span><span class="yellow">.GG</span>
+                    </div>
+                    <a href="#anarchia" class="pykmc-box anarchia-btn">
+                        <span class="white">ANARCHIA</span>
+                    </a>
+                    <div class="coming-soon">Coming soon...</div>
                 </div>
-                <a href="#anarchia" class="pykmc-box anarchia-btn">
-                    <span class="white">ANARCHIA</span>
-                </a>
-                <div class="coming-soon">Coming soon...</div>
-            </div>
 
-            <div class="server">
-                <div class="server-name">
-                    <span class="pink">PYK</span><span class="yellow">MC.PL</span>
+                <div class="server">
+                    <div class="server-name">
+                        <span class="pink">PYK</span><span class="yellow">MC.PL</span>
+                    </div>
+                    <a href="#pykmc" class="pykmc-box pykmc-btn">
+                        <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
+                    </a>
                 </div>
-                <a href="#pykmc" class="pykmc-box pykmc-btn">
-                    <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
-                </a>
             </div>
         </div>
 
