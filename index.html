@@ -59,9 +59,17 @@
         text-shadow: 0 0 10px #FF69B4;
     }
 
-    /* Minecraftowy nagłówek PYKMC.PL */
+    /* Sekcja Minecraft: PYKMC.PL i przycisk */
+    .pykmc-section {
+        margin-top: 100px;
+        transform: translateX(80px); /* przesunięcie w prawo */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Napis PYKMC.PL */
     .pykmc-main {
-        margin-top: 100px; /* było 30px – teraz niżej */
         font-family: 'Minecraftia', monospace;
         font-size: 72px;
         font-weight: bold;
@@ -82,7 +90,7 @@
         display: flex;
         justify-content: center;
         width: 100%;
-        margin-top: 60px; /* było 25px – teraz niżej */
+        margin-top: 60px;
     }
 
     /* Przycisk Minecraft */
@@ -110,7 +118,7 @@
         font-size: 36px;
         font-weight: bold;
         transition: transform 0.3s ease;
-        line-height: 1; /* dokładne wyśrodkowanie pionowe */
+        line-height: 1;
     }
 
     .pykmc-box:hover span {
@@ -127,16 +135,17 @@
     <div class="neon-blue">KUPITEMKA.PL</div>
     <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-    <!-- PYKMC.PL -->
-    <div class="pykmc-main">
-        <span class="pink">PYK</span><span class="yellow">MC.PL</span>
-    </div>
+    <!-- Sekcja PYKMC przesunięta w prawo -->
+    <div class="pykmc-section">
+        <div class="pykmc-main">
+            <span class="pink">PYK</span><span class="yellow">MC.PL</span>
+        </div>
 
-    <!-- Przycisk -->
-    <div class="button-container">
-        <a href="#pykmc" class="pykmc-box">
-            <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
-        </a>
+        <div class="button-container">
+            <a href="#pykmc" class="pykmc-box">
+                <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
+            </a>
+        </div>
     </div>
 </div>
 
