@@ -13,41 +13,31 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* zaczynamy od góry */
-            padding-top: 80px; /* trochę miejsca od góry */
+            justify-content: flex-start; 
+            padding-top: 80px;
             color: white;
             text-align: center;
         }
 
-        /* Neonowy efekt nagłówków */
-        .neon {
+        /* Neonowy efekt prosty, bez błysków */
+        .neon-blue {
             font-size: 64px;
             font-weight: bold;
             color: #00f0ff; /* jasnoniebieski */
-            text-shadow: 
-                0 0 5px #00f0ff,
-                0 0 10px #00f0ff,
-                0 0 20px #00f0ff,
-                0 0 40px #00f0ff,
-                0 0 80px #00f0ff;
+            text-shadow: 0 0 10px #00f0ff;
         }
 
-        .neon-subtitle {
+        .neon-pink {
             font-size: 28px;
             font-weight: bold;
-            color: #00f0ff;
             margin-top: 10px;
-            text-shadow: 
-                0 0 5px #00f0ff,
-                0 0 10px #00f0ff,
-                0 0 20px #00f0ff,
-                0 0 40px #00f0ff,
-                0 0 80px #00f0ff;
+            color: #FF69B4; /* jasnoróżowy */
+            text-shadow: 0 0 10px #FF69B4;
         }
 
         /* Nagłówek PYKMC.PL */
         .pykmc-main {
-            margin-top: 60px; /* miejsce pod neonowym nagłówkiem */
+            margin-top: 60px;
             font-size: 64px;
             font-weight: bold;
             background: linear-gradient(90deg, #FF69B4, #FFFF00);
@@ -90,8 +80,8 @@
 </head>
 <body>
     <!-- Neonowy nagłówek -->
-    <div class="neon">KupItemka.pl</div>
-    <div class="neon-subtitle">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
+    <div class="neon-blue">KupItemka.pl</div>
+    <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
     <!-- PYKMC.PL tam, gdzie był przycisk -->
     <div class="pykmc-main">PYKMC.PL</div>
