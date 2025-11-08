@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KupItemka.pl</title>
     <style>
-        /* Styl dla całej strony */
         body {
             margin: 0;
             font-family: 'Arial Black', Arial, sans-serif;
@@ -14,30 +13,47 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* zaczynamy od góry */
+            padding-top: 80px; /* trochę miejsca od góry */
             color: white;
             text-align: center;
         }
 
-        /* Główny nagłówek */
-        .main-text {
+        /* Neonowy efekt nagłówków */
+        .neon {
             font-size: 64px;
             font-weight: bold;
-            background: linear-gradient(90deg, #FF69B4, #FFFF00); /* róż + żółty */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+            color: #00f0ff; /* jasnoniebieski */
+            text-shadow: 
+                0 0 5px #00f0ff,
+                0 0 10px #00f0ff,
+                0 0 20px #00f0ff,
+                0 0 40px #00f0ff,
+                0 0 80px #00f0ff;
         }
 
-        /* Podtytuł */
-        .subtitle {
+        .neon-subtitle {
             font-size: 28px;
             font-weight: bold;
+            color: #00f0ff;
             margin-top: 10px;
+            text-shadow: 
+                0 0 5px #00f0ff,
+                0 0 10px #00f0ff,
+                0 0 20px #00f0ff,
+                0 0 40px #00f0ff,
+                0 0 80px #00f0ff;
+        }
+
+        /* Nagłówek PYKMC.PL */
+        .pykmc-main {
+            margin-top: 60px; /* miejsce pod neonowym nagłówkiem */
+            font-size: 64px;
+            font-weight: bold;
             background: linear-gradient(90deg, #FF69B4, #FFFF00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
         }
 
         /* Prostokątny przycisk */
@@ -61,7 +77,6 @@
             box-shadow: 0 0 25px #FF69B4;
         }
 
-        /* Napis w przycisku */
         .pykmc-box span {
             font-size: 32px;
             font-weight: bold;
@@ -74,9 +89,12 @@
     </style>
 </head>
 <body>
-    <!-- Nagłówek -->
-    <div class="main-text">KupItemka.pl</div>
-    <div class="subtitle">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
+    <!-- Neonowy nagłówek -->
+    <div class="neon">KupItemka.pl</div>
+    <div class="neon-subtitle">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
+
+    <!-- PYKMC.PL tam, gdzie był przycisk -->
+    <div class="pykmc-main">PYKMC.PL</div>
 
     <!-- Przyciski -->
     <a href="#pykmc" class="pykmc-box">
