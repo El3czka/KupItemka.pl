@@ -3,28 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Entropia - PYKMC.PL</title>
+<title>ENTROPIA - PYKMC.PL</title>
 <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 <style>
-/* Linki i przyciski powrotu */
-a {
-    text-decoration: none;
-    color: inherit;
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
 }
+
+/* Animacja wejścia */
+.fade-slide {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideIn 0.8s forwards;
+}
+
+@keyframes fadeSlideIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Podstrona Entropia */
+#entropia-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.logo { width: 300px; max-width: 80%; margin: 20px auto; }
+
+.mode-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.mode-card {
+    background-color: #111;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 20px 30px;
+    width: 180px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideIn 0.8s forwards;
+}
+
+.mode-card:hover { transform: scale(1.05); box-shadow: 0 0 20px #fff; }
+
+.mode-card h3 { 
+    margin: 0; 
+    font-size: 18px; 
+    color: #ff3333; /* czerwony napis Entropia */
+    text-decoration: none;
+}
+
+.mode-card .coming-soon { font-size: 14px; color: #888; margin-top: 6px; }
+
+/* Przycisk Powrót */
 .back-button {
-    display: block;
-    margin: 50px auto 20px auto;
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 16px;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background-color: #111;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideIn 0.8s forwards;
+}
+
+.back-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #fff;
+}
+
+/* RESPONSYWNOŚĆ */
+@media screen and (max-width: 480px) {
+    .mode-card { width: 140px; padding: 15px 20px; }
+    .back-button { padding: 8px 20px; font-size: 14px; }
 }
 </style>
 </head>
 <body>
 
-<div class="page-content">
-    <h1 class="neon-blue">ENTROPIA</h1>
-    <p class="neon-pink">Zmiany w tym trybie zostaną tutaj wyświetlone.</p>
-    <a href="pykmc.html" class="back-button">Powrót</a>
+<div id="entropia-page">
+    <img src="https://i.imgur.com/SYvgQoR.png" alt="Entropia Logo" class="logo fade-slide" style="animation-delay:0.2s;">
+    
+    <h1 class="fade-slide" style="color:#ff3333; animation-delay:0.3s;">ENTROPIA</h1>
+
+    <div class="mode-grid fade-slide" style="animation-delay:0.4s;">
+        <div class="mode-card">
+            <h3>ZMIANKI</h3>
+        </div>
+    </div>
+
+    <button class="back-button fade-slide" id="backBtn" style="animation-delay:0.5s;">Powrót</button>
 </div>
+
+<script>
+// Przycisk Powrót
+const backBtn = document.getElementById('backBtn');
+backBtn.addEventListener('click', () => {
+    window.location.href = "pykmc.html"; // wraca do podstrony PYKMC
+});
+</script>
 
 </body>
 </html>
