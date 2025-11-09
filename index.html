@@ -5,88 +5,81 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KUPITEMKA.PL</title>
 
-<!-- Font Minecraft -->
 <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
 
 <style>
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background: #000;
-    color: white;
-    text-align: center;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: white;
+  text-align: center;
+  overflow: hidden;
 }
 
 .hidden { display: none; }
 
-/* Strona główna */
+/* Główna strona */
 #main-site {
-    display: none;
-    position: relative;
-    width: 100%;
-    height: 100vh;
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100vh;
 }
 
 canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
 .content-wrapper {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.content-top {
-    margin-top: 30px;
-}
+.content-top { margin-top: 30px; }
 
 .neon-blue {
-    font-family: 'Arial Black', Arial, sans-serif;
-    font-size: 64px;
-    font-weight: bold;
-    color: #00f0ff;
-    text-shadow: 0 0 10px #00f0ff;
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 64px;
+  font-weight: bold;
+  color: #00f0ff;
+  text-shadow: 0 0 10px #00f0ff;
 }
 
 .neon-pink {
-    font-family: 'Arial Black', Arial, sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #FF69B4;
-    text-shadow: 0 0 10px #FF69B4;
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #FF69B4;
+  text-shadow: 0 0 10px #FF69B4;
 }
 
 .servers {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 150px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 150px;
 }
 
-.server {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+.server { display: flex; flex-direction: column; align-items: center; }
 
 .server-name {
-    font-family: 'Minecraftia', monospace;
-    font-size: 72px;
-    font-weight: bold;
+  font-family: 'Minecraftia', monospace;
+  font-size: 72px;
+  font-weight: bold;
 }
 
 .pink { color: #FF69B4; text-shadow: 0 0 15px #FF69B4; }
@@ -94,160 +87,159 @@ canvas {
 .white { color: #FFFFFF; text-shadow: 0 0 15px #FFFFFF; }
 
 .pykmc-box {
-    position: relative;
-    background-color: #111;
-    border: 2px solid white;
-    border-radius: 8px;
-    padding: 25px 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-    margin-top: 40px;
-    overflow: hidden;
+  position: relative;
+  background-color: #111;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 25px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  margin-top: 40px;
+  overflow: hidden;
 }
 
 .pykmc-box span {
-    font-family: 'Minecraftia', monospace;
-    font-size: 36px;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-    line-height: 1;
-    z-index: 2;
-    position: relative;
+  font-family: 'Minecraftia', monospace;
+  font-size: 36px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  line-height: 1;
+  z-index: 2;
+  position: relative;
 }
 
-.pykmc-box:hover {
-    transform: scale(1.1);
-}
-
-.pykmc-box:hover span {
-    transform: translateY(-5px);
-}
+.pykmc-box:hover { transform: scale(1.1); }
+.pykmc-box:hover span { transform: translateY(-5px); }
 
 .pykmc-box::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .anarchia-btn::after {
-    background: radial-gradient(circle at left, white, transparent 70%), 
-                radial-gradient(circle at right, #FFFF00, transparent 70%);
+  background: radial-gradient(circle at left, white, transparent 70%), radial-gradient(circle at right, #FFFF00, transparent 70%);
 }
 
-.anarchia-btn:hover::after {
-    opacity: 1;
-    box-shadow: 0 0 25px #FFFF00, 0 0 25px white;
-}
+.anarchia-btn:hover::after { opacity: 1; box-shadow: 0 0 25px #FFFF00, 0 0 25px white; }
 
 .pykmc-btn::after {
-    background: radial-gradient(circle at left, #FF69B4, transparent 70%), 
-                radial-gradient(circle at right, #FFFF00, transparent 70%);
+  background: radial-gradient(circle at left, #FF69B4, transparent 70%), radial-gradient(circle at right, #FFFF00, transparent 70%);
 }
 
-.pykmc-btn:hover::after {
-    opacity: 1;
-    box-shadow: 0 0 25px #FF69B4, 0 0 25px #FFFF00;
-}
-
-.coming-soon {
-    font-family: 'Arial Black', Arial, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    color: #ffffff;
-    text-shadow: 0 0 10px #ffffff;
-    margin-top: 10px;
-    opacity: 0.9;
-}
+.pykmc-btn:hover::after { opacity: 1; box-shadow: 0 0 25px #FF69B4, 0 0 25px #FFFF00; }
 
 .bottom-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 50px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
 .info-box {
-    background-color: #111;
-    border: 2px solid white;
-    border-radius: 8px;
-    padding: 12px 18px;
-    width: 220px;
-    height: 70px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #ccc;
-    font-family: 'Arial Black', Arial, sans-serif;
-    text-align: center;
-    line-height: 1.2;
-    box-shadow: 0 0 15px #ffffff20;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #111;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 12px 18px;
+  width: 220px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  font-family: 'Arial Black', Arial, sans-serif;
+  text-align: center;
+  line-height: 1.2;
+  box-shadow: 0 0 15px #ffffff20;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.info-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px #ffffff40;
-}
+.info-box:hover { transform: scale(1.05); box-shadow: 0 0 25px #ffffff40; }
 
-.info-box .main-text {
-    font-size: 18px;
-    color: #fff;
-    font-weight: bold;
-    margin-bottom: 2px;
-}
+.info-box .main-text { font-size: 18px; color: #fff; font-weight: bold; margin-bottom: 2px; }
+.info-box .sub-text { font-size: 13px; color: #aaa; line-height: 1.2; }
 
-.info-box .sub-text {
-    font-size: 13px;
-    color: #aaa;
-    line-height: 1.2;
-}
-
-/* Podstrona PYKMC */
+/* Strona PYKMC */
 #pykmc-page {
-    display: none;
-    width: 100%;
-    height: 100vh;
-    background: radial-gradient(circle at center, #1a1a1a, #000);
-    color: #fff;
-    font-family: 'Minecraftia', monospace;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at center, #1a1a1a, #000);
+  color: #fff;
+  font-family: 'Minecraftia', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#pykmc-page h1 {
-    font-size: 60px;
-    color: #FF69B4;
-    text-shadow: 0 0 20px #FF69B4;
-    margin-bottom: 40px;
+.modes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 50px;
 }
+
+.mode-box {
+  background-color: #111;
+  border: 2px solid white;
+  border-radius: 12px;
+  padding: 20px 40px;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mode-box:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #ffffff40;
+}
+
+.mode-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.mode-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.mode-entropia { color: #ff4040; text-shadow: 0 0 10px #ff4040; }
+.mode-boxpvp { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+.mode-skyblock { color: #40a0ff; text-shadow: 0 0 10px #40a0ff; }
+.mode-chestpvp { color: #ffff00; text-shadow: 0 0 10px #ffff00; }
 
 .back-btn {
-    background: #111;
-    border: 2px solid white;
-    border-radius: 8px;
-    padding: 15px 40px;
-    color: white;
-    font-family: 'Minecraftia', monospace;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background: #111;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 15px 40px;
+  color: white;
+  font-family: 'Minecraftia', monospace;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .back-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px #FFFF00;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #FFFF00;
 }
 </style>
 </head>
@@ -255,129 +247,128 @@ canvas {
 
 <!-- Strona główna -->
 <div id="main-site">
-    <canvas id="bgCanvas"></canvas>
-    <div class="content-wrapper">
-        <div class="content-top">
-            <div class="neon-blue">KUPITEMKA.PL</div>
-            <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
+  <canvas id="bgCanvas"></canvas>
+  <div class="content-wrapper">
+    <div class="content-top">
+      <div class="neon-blue">KUPITEMKA.PL</div>
+      <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-            <div class="servers">
-                <div class="server">
-                    <div class="server-name">
-                        <span class="white">ANARCHIA</span><span class="yellow">.GG</span>
-                    </div>
-                    <a href="#anarchia" class="pykmc-box anarchia-btn">
-                        <span class="white">ANARCHIA</span>
-                    </a>
-                    <div class="coming-soon">Coming soon...</div>
-                </div>
-
-                <div class="server">
-                    <div class="server-name">
-                        <span class="pink">PYK</span><span class="yellow">MC.PL</span>
-                    </div>
-                    <div id="pykmcBtn" class="pykmc-box pykmc-btn">
-                        <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
-                    </div>
-                </div>
-            </div>
+      <div class="servers">
+        <div class="server">
+          <div class="server-name"><span class="white">ANARCHIA</span><span class="yellow">.GG</span></div>
+          <a href="#anarchia" class="pykmc-box anarchia-btn"><span class="white">ANARCHIA</span></a>
+          <div class="coming-soon">Coming soon...</div>
         </div>
 
-        <div class="bottom-buttons">
-            <div class="info-box">
-                <div class="main-text">4+</div>
-                <div class="sub-text">Legitchecków</div>
-            </div>
-            <div class="info-box">
-                <div class="main-text">Częste konkursy</div>
-                <div class="sub-text">Promocje w weekendy i nie tylko!</div>
-            </div>
-            <div class="info-box">
-                <div class="main-text">Bezpiecznie i tanio</div>
-                <div class="sub-text">Szybkie i bezpieczne usługi</div>
-            </div>
+        <div class="server">
+          <div class="server-name"><span class="pink">PYK</span><span class="yellow">MC.PL</span></div>
+          <div id="pykmcBtn" class="pykmc-box pykmc-btn">
+            <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
+          </div>
         </div>
+      </div>
     </div>
+
+    <div class="bottom-buttons">
+      <div class="info-box"><div class="main-text">4+</div><div class="sub-text">Legitchecków</div></div>
+      <div class="info-box"><div class="main-text">Częste konkursy</div><div class="sub-text">Promocje w weekendy i nie tylko!</div></div>
+      <div class="info-box"><div class="main-text">Bezpiecznie i tanio</div><div class="sub-text">Szybkie i bezpieczne usługi</div></div>
+    </div>
+  </div>
 </div>
 
 <!-- Podstrona PYKMC -->
 <div id="pykmc-page">
-    <h1>Test 123</h1>
-    <button class="back-btn" id="backBtn">Powrót</button>
+  <div class="modes">
+    <div class="mode-box mode-entropia">
+      <img class="mode-icon" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/a/a6/Rose_Red_JE2_BE2.png" alt="entropia">
+      <div class="mode-title">ENTROPIA</div>
+    </div>
+    <div class="mode-box mode-boxpvp">
+      <img class="mode-icon" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d1/Elytra_%28item%29_JE2_BE2.png" alt="elytra">
+      <div class="mode-title">BOXPVP</div>
+    </div>
+    <div class="mode-box mode-skyblock">
+      <img class="mode-icon" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/98/Water_Bucket_JE2_BE2.png" alt="skyblock">
+      <div class="mode-title">SKYBLOCK</div>
+    </div>
+    <div class="mode-box mode-chestpvp">
+      <img class="mode-icon" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/7a/Netherite_Sword_JE2_BE2.png" alt="sword">
+      <div class="mode-title">CHESTPVP</div>
+    </div>
+  </div>
+  <button class="back-btn" id="backBtn">Powrót</button>
 </div>
 
 <!-- Wersja mobilna -->
 <div id="mobile-site" class="hidden">
-    <div class="mobile-warning">
-        Ta strona nie jest jeszcze zoptymalizowana na telefon.<br>
-        Spróbuj otworzyć ją na PC 💻
-    </div>
+  <div class="mobile-warning">
+    Ta strona nie jest jeszcze zoptymalizowana na telefon.<br>Spróbuj otworzyć ją na PC 💻
+  </div>
 </div>
 
 <script>
-// Animowane tło
+// Animacja tła
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
 
 window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
 });
 
 const dots = [];
 for (let i = 0; i < 80; i++) {
-    dots.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 3 + 1,
-        dx: (Math.random() - 0.5) * 0.5,
-        dy: (Math.random() - 0.5) * 0.5,
-        color: Math.random() < 0.5 ? '#00f0ff' : '#FF69B4'
-    });
+  dots.push({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    radius: Math.random() * 3 + 1,
+    dx: (Math.random() - 0.5) * 0.5,
+    dy: (Math.random() - 0.5) * 0.5,
+    color: Math.random() < 0.5 ? '#00f0ff' : '#FF69B4'
+  });
 }
 
 function animate() {
-    ctx.clearRect(0, 0, width, height);
-    for (const d of dots) {
-        ctx.beginPath();
-        ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
-        ctx.fillStyle = d.color;
-        ctx.shadowColor = d.color;
-        ctx.shadowBlur = 10;
-        ctx.fill();
-        d.x += d.dx;
-        d.y += d.dy;
-        if (d.x < 0 || d.x > width) d.dx *= -1;
-        if (d.y < 0 || d.y > height) d.dy *= -1;
-    }
-    requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, width, height);
+  for (const d of dots) {
+    ctx.beginPath();
+    ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
+    ctx.fillStyle = d.color;
+    ctx.shadowColor = d.color;
+    ctx.shadowBlur = 10;
+    ctx.fill();
+    d.x += d.dx;
+    d.y += d.dy;
+    if (d.x < 0 || d.x > width) d.dx *= -1;
+    if (d.y < 0 || d.y > height) d.dy *= -1;
+  }
+  requestAnimationFrame(animate);
 }
 
-// Detekcja urządzenia
+// Logika przejść
 window.onload = function() {
-    const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
-    if (isMobile) {
-        document.getElementById('mobile-site').style.display = 'block';
-    } else {
-        document.getElementById('main-site').style.display = 'block';
-        animate();
-    }
+  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+  if (isMobile) {
+    document.getElementById('mobile-site').style.display = 'block';
+  } else {
+    document.getElementById('main-site').style.display = 'block';
+    animate();
+  }
 
-    // Kliknięcie PYKMC -> przejście do podstrony
-    document.getElementById('pykmcBtn').addEventListener('click', () => {
-        document.getElementById('main-site').style.display = 'none';
-        document.getElementById('pykmc-page').style.display = 'flex';
-        window.location.hash = "#pykmc";
-    });
+  document.getElementById('pykmcBtn').addEventListener('click', () => {
+    document.getElementById('main-site').style.display = 'none';
+    document.getElementById('pykmc-page').style.display = 'flex';
+    window.location.hash = "#pykmc";
+  });
 
-    // Powrót do strony głównej
-    document.getElementById('backBtn').addEventListener('click', () => {
-        document.getElementById('pykmc-page').style.display = 'none';
-        document.getElementById('main-site').style.display = 'block';
-        window.location.hash = "#glowna";
-    });
+  document.getElementById('backBtn').addEventListener('click', () => {
+    document.getElementById('pykmc-page').style.display = 'none';
+    document.getElementById('main-site').style.display = 'block';
+    window.location.hash = "#glowna";
+  });
 };
 </script>
 
