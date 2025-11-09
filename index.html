@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KUPITEMKA.PL</title>
-
-<!-- Font Minecraft -->
 <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
-
 <style>
 html, body {
     margin: 0;
@@ -21,7 +18,7 @@ html, body {
     overflow-x: hidden;
 }
 
-/* Efekt wejścia */
+/* Animacja wejścia */
 .fade-slide {
     opacity: 0;
     transform: translateY(-50px);
@@ -29,12 +26,10 @@ html, body {
 }
 
 @keyframes fadeSlideIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
 
+/* Główne kontenery */
 #main-site, #pykmc {
     position: relative;
     width: 100%;
@@ -83,6 +78,7 @@ canvas {
     text-shadow: 0 0 10px #FF69B4;
 }
 
+/* Serwery i przyciski */
 .servers {
     margin-top: 20px;
     display: flex;
@@ -104,6 +100,10 @@ canvas {
     font-weight: bold;
     min-font-size: 24px;
 }
+
+.white { color: #FFFFFF; text-shadow: 0 0 15px #FFFFFF; }
+.yellow { color: #FFFF00; text-shadow: 0 0 15px #FFFF00; }
+.pink { color: #FF69B4; text-shadow: 0 0 15px #FF69B4; }
 
 .pykmc-box {
     position: relative;
@@ -134,6 +134,7 @@ canvas {
 .pykmc-box:hover { transform: scale(1.05); }
 .pykmc-box:hover span { transform: translateY(-5px); }
 
+/* Gradient wewnętrzny przy najechaniu */
 .anarchia-btn::after {
     content: "";
     position: absolute;
@@ -162,6 +163,7 @@ canvas {
 
 .pykmc-btn:hover::after { opacity: 1; }
 
+/* Coming soon */
 .coming-soon {
     font-family: 'Arial Black', Arial, sans-serif;
     font-size: 14px;
@@ -171,6 +173,7 @@ canvas {
     opacity: 0.9;
 }
 
+/* Dolne przyciski */
 .bottom-buttons {
     display: flex;
     justify-content: center;
@@ -237,7 +240,6 @@ canvas {
 .mode-card img { width: 40px; height: 40px; margin-bottom: 10px; }
 .mode-card h3 { margin: 0; font-size: 18px; }
 
-/* Coming soon pod trybami */
 .mode-card .coming-soon { font-size: 12px; color: #888; margin-top: 6px; }
 
 .back-button {
@@ -256,7 +258,7 @@ canvas {
 }
 .back-button:hover { transform: scale(1.05); box-shadow: 0 0 15px #fff; }
 
-/* RESPONSYWNE MEDIA QUERIES */
+/* RESPONSYWNOŚĆ */
 @media screen and (max-width: 1024px) {
     .servers { gap: 50px; }
     .pykmc-box { padding: 20px 40px; font-size: 4vw; }
@@ -415,6 +417,5 @@ backBtn.addEventListener('click', () => {
     mainSite.style.display = 'block';
 });
 </script>
-
 </body>
 </html>
