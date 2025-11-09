@@ -55,7 +55,6 @@ canvas {
     gap: 160px;
 }
 
-/* Blok przycisku PYKMC i ANARCHIA */
 .server-section {
     display: flex;
     flex-direction: column;
@@ -83,6 +82,7 @@ canvas {
     text-shadow: 0 0 15px #ffffff;
 }
 
+/* Guziki główne */
 .button {
     background-color: #111;
     border: 2px solid #fff;
@@ -106,12 +106,12 @@ canvas {
     transform: translateY(-5px);
 }
 
-/* Glow efekty */
+/* Efekty glow */
 #pykmcBtn:hover {
-    box-shadow: 0 0 25px #ff66cc, 0 0 25px #ffff00;
+    box-shadow: 0 0 30px #ff66cc, 0 0 30px #ffff00;
 }
 #anarchiaBtn:hover {
-    box-shadow: 0 0 25px #ffffff, 0 0 25px #ffff00;
+    box-shadow: 0 0 30px #ffffff, 0 0 30px #ffff00;
 }
 
 /* Dolne okna */
@@ -133,6 +133,13 @@ canvas {
     width: 280px;
     text-align: center;
     color: #aaa;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efekt hover na oknach dolnych */
+.bottom-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #fff;
 }
 
 .bottom-box h3 {
@@ -322,7 +329,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     animate();
 
-    // Ukryj podstronę przy starcie
     pykmc.classList.add('hidden');
 
     pykmcBtn.addEventListener('click', e => {
