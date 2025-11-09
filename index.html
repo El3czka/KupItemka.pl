@@ -223,6 +223,15 @@ canvas {
     color: #aaa;
     line-height: 1.2;
 }
+
+.test-text {
+    margin-top: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF69B4;
+    text-shadow: 0 0 10px #FF69B4;
+    display: none;
+}
 </style>
 </head>
 <body>
@@ -250,9 +259,10 @@ canvas {
                     <div class="server-name">
                         <span class="pink">PYK</span><span class="yellow">MC.PL</span>
                     </div>
-                    <a href="#pykmc" class="pykmc-box pykmc-btn">
+                    <div id="pykmcBtn" class="pykmc-box pykmc-btn">
                         <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
-                    </a>
+                    </div>
+                    <div id="testText" class="test-text">Test 123</div>
                 </div>
             </div>
         </div>
@@ -333,6 +343,14 @@ window.onload = function() {
         document.getElementById('main-site').style.display = 'block';
         animate();
     }
+
+    // Obsługa kliknięcia przycisku PYKMC
+    const pykmcBtn = document.getElementById('pykmcBtn');
+    const testText = document.getElementById('testText');
+
+    pykmcBtn.addEventListener('click', () => {
+        testText.style.display = 'block';
+    });
 };
 </script>
 
