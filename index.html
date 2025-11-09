@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KUPITEMKA.PL</title>
-
 <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
 
 <style>
@@ -18,6 +17,10 @@ html, body {
   color: white;
   text-align: center;
   overflow: hidden;
+}
+
+body * {
+  transition: opacity 0.3s ease;
 }
 
 .hidden { display: none; }
@@ -128,13 +131,11 @@ canvas {
 .anarchia-btn::after {
   background: radial-gradient(circle at left, white, transparent 70%), radial-gradient(circle at right, #FFFF00, transparent 70%);
 }
-
 .anarchia-btn:hover::after { opacity: 1; box-shadow: 0 0 25px #FFFF00, 0 0 25px white; }
 
 .pykmc-btn::after {
   background: radial-gradient(circle at left, #FF69B4, transparent 70%), radial-gradient(circle at right, #FFFF00, transparent 70%);
 }
-
 .pykmc-btn:hover::after { opacity: 1; box-shadow: 0 0 25px #FF69B4, 0 0 25px #FFFF00; }
 
 .bottom-buttons {
@@ -164,7 +165,6 @@ canvas {
   box-shadow: 0 0 15px #ffffff20;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .info-box:hover { transform: scale(1.05); box-shadow: 0 0 25px #ffffff40; }
 
 .info-box .main-text { font-size: 18px; color: #fff; font-weight: bold; margin-bottom: 2px; }
@@ -178,7 +178,6 @@ canvas {
   background: radial-gradient(circle at center, #1a1a1a, #000);
   color: #fff;
   font-family: 'Minecraftia', monospace;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -214,6 +213,7 @@ canvas {
 .mode-icon {
   width: 28px;
   height: 28px;
+  image-rendering: pixelated;
 }
 
 .mode-title {
@@ -236,17 +236,25 @@ canvas {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .back-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 0 20px #FFFF00;
+}
+
+.mobile-warning {
+  display: none;
+  text-align: center;
+  padding: 40px;
+  font-size: 20px;
+  color: #FF69B4;
+  text-shadow: 0 0 10px #FF69B4;
 }
 </style>
 </head>
 <body>
 
-<!-- Strona główna -->
-<div id="main-site">
+<!-- Główna strona -->
+<div id="main-site" class="hidden">
   <canvas id="bgCanvas"></canvas>
   <div class="content-wrapper">
     <div class="content-top">
@@ -256,7 +264,7 @@ canvas {
       <div class="servers">
         <div class="server">
           <div class="server-name"><span class="white">ANARCHIA</span><span class="yellow">.GG</span></div>
-          <a href="#anarchia" class="pykmc-box anarchia-btn"><span class="white">ANARCHIA</span></a>
+          <a href="#" class="pykmc-box anarchia-btn"><span class="white">ANARCHIA</span></a>
           <div class="coming-soon">Coming soon...</div>
         </div>
 
@@ -277,23 +285,23 @@ canvas {
   </div>
 </div>
 
-<!-- Podstrona PYKMC -->
-<div id="pykmc-page">
+<!-- Strona PYKMC -->
+<div id="pykmc-page" class="hidden">
   <div class="modes">
     <div class="mode-box mode-entropia">
-      <img class="mode-icon" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/a/a6/Rose_Red_JE2_BE2.png" alt="entropia">
+      <img class="mode-icon" src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/refs/heads/1.20.1/assets/minecraft/textures/item/red_dye.png" alt="entropia">
       <div class="mode-title">ENTROPIA</div>
     </div>
     <div class="mode-box mode-boxpvp">
-      <img class="mode-icon" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d1/Elytra_%28item%29_JE2_BE2.png" alt="elytra">
+      <img class="mode-icon" src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/refs/heads/1.20.1/assets/minecraft/textures/item/elytra.png" alt="elytra">
       <div class="mode-title">BOXPVP</div>
     </div>
     <div class="mode-box mode-skyblock">
-      <img class="mode-icon" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/98/Water_Bucket_JE2_BE2.png" alt="skyblock">
+      <img class="mode-icon" src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/refs/heads/1.20.1/assets/minecraft/textures/item/water_bucket.png" alt="skyblock">
       <div class="mode-title">SKYBLOCK</div>
     </div>
     <div class="mode-box mode-chestpvp">
-      <img class="mode-icon" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/7a/Netherite_Sword_JE2_BE2.png" alt="sword">
+      <img class="mode-icon" src="https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/refs/heads/1.20.1/assets/minecraft/textures/item/netherite_sword.png" alt="sword">
       <div class="mode-title">CHESTPVP</div>
     </div>
   </div>
@@ -301,24 +309,20 @@ canvas {
 </div>
 
 <!-- Wersja mobilna -->
-<div id="mobile-site" class="hidden">
-  <div class="mobile-warning">
-    Ta strona nie jest jeszcze zoptymalizowana na telefon.<br>Spróbuj otworzyć ją na PC 💻
-  </div>
+<div id="mobile-site" class="mobile-warning hidden">
+  Ta strona nie jest jeszcze zoptymalizowana na telefon.<br>Spróbuj otworzyć ją na PC 💻
 </div>
 
 <script>
-// Animacja tła
+// tło animowane
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
-
 window.addEventListener('resize', () => {
   width = canvas.width = window.innerWidth;
   height = canvas.height = window.innerHeight;
 });
-
 const dots = [];
 for (let i = 0; i < 80; i++) {
   dots.push({
@@ -330,7 +334,6 @@ for (let i = 0; i < 80; i++) {
     color: Math.random() < 0.5 ? '#00f0ff' : '#FF69B4'
   });
 }
-
 function animate() {
   ctx.clearRect(0, 0, width, height);
   for (const d of dots) {
@@ -348,28 +351,32 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-// Logika przejść
-window.onload = function() {
+// logika stron
+window.addEventListener('load', () => {
   const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+  const main = document.getElementById('main-site');
+  const pykmc = document.getElementById('pykmc-page');
+  const mobile = document.getElementById('mobile-site');
+
   if (isMobile) {
-    document.getElementById('mobile-site').style.display = 'block';
+    mobile.classList.remove('hidden');
   } else {
-    document.getElementById('main-site').style.display = 'block';
+    main.classList.remove('hidden');
     animate();
   }
 
   document.getElementById('pykmcBtn').addEventListener('click', () => {
-    document.getElementById('main-site').style.display = 'none';
-    document.getElementById('pykmc-page').style.display = 'flex';
+    main.classList.add('hidden');
+    pykmc.classList.remove('hidden');
     window.location.hash = "#pykmc";
   });
 
   document.getElementById('backBtn').addEventListener('click', () => {
-    document.getElementById('pykmc-page').style.display = 'none';
-    document.getElementById('main-site').style.display = 'block';
+    pykmc.classList.add('hidden');
+    main.classList.remove('hidden');
     window.location.hash = "#glowna";
   });
-};
+});
 </script>
 
 </body>
