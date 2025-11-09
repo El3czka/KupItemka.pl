@@ -21,6 +21,20 @@ html, body {
     overflow: hidden;
 }
 
+/* Efekt wejścia */
+.fade-slide {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideIn 0.8s forwards;
+}
+
+@keyframes fadeSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 #main-site, #pykmc {
     position: relative;
     width: 100%;
@@ -243,6 +257,9 @@ canvas {
     width: 220px;
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideIn 0.8s forwards;
 }
 
 .mode-card:hover {
@@ -271,6 +288,9 @@ canvas {
     color: white;
     cursor: pointer;
     transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideIn 0.8s forwards;
 }
 
 .back-button:hover {
@@ -285,11 +305,11 @@ canvas {
 <div id="main-site">
     <canvas id="bgCanvas"></canvas>
     <div class="content-wrapper">
-        <div class="content-top">
-            <div class="neon-blue">KUPITEMKA.PL</div>
-            <div class="neon-pink">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
+        <div class="content-top fade-slide">
+            <div class="neon-blue fade-slide" style="animation-delay: 0.2s;">KUPITEMKA.PL</div>
+            <div class="neon-pink fade-slide" style="animation-delay: 0.4s;">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-            <div class="servers">
+            <div class="servers fade-slide" style="animation-delay: 0.6s;">
                 <div class="server">
                     <div class="server-name">
                         <span class="white">ANARCHIA</span><span class="yellow">.GG</span>
@@ -311,7 +331,7 @@ canvas {
             </div>
         </div>
 
-        <div class="bottom-buttons">
+        <div class="bottom-buttons fade-slide" style="animation-delay: 0.8s;">
             <div class="info-box">
                 <div class="main-text">4+</div>
                 <div class="sub-text">Legitchecków</div>
@@ -330,26 +350,26 @@ canvas {
 
 <!-- Podstrona PYKMC -->
 <div id="pykmc">
-    <img src="https://i.imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo">
+    <img src="https://i.imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide" style="animation-delay: 0.2s;">
     <div class="mode-grid">
-        <div class="mode-card">
+        <div class="mode-card" style="animation-delay:0.3s;">
             <img src="https://i.imgur.com/SYvgQoR.png" alt="Entropia">
             <h3 style="color: #ff3333;">ENTROPIA</h3>
         </div>
-        <div class="mode-card">
+        <div class="mode-card" style="animation-delay:0.4s;">
             <img src="https://i.imgur.com/boxpvp.png" alt="BoxPVP">
             <h3 style="color: #00ffff;">BOXPVP</h3>
         </div>
-        <div class="mode-card">
+        <div class="mode-card" style="animation-delay:0.5s;">
             <img src="https://i.imgur.com/skyblock.png" alt="Skyblock">
             <h3 style="color: #1e90ff;">SKYBLOCK</h3>
         </div>
-        <div class="mode-card">
+        <div class="mode-card" style="animation-delay:0.6s;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Enchanted_Netherite_Sword.gif" alt="ChestPVP">
             <h3 style="color: #a020f0;">CHESTPVP</h3>
         </div>
     </div>
-    <button class="back-button" id="backBtn">Powrót</button>
+    <button class="back-button fade-slide" id="backBtn" style="animation-delay: 0.7s;">Powrót</button>
 </div>
 
 <script>
