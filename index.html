@@ -19,95 +19,26 @@ html, body {
 }
 
 /* Animacja wejścia */
-.fade-slide {
-    opacity: 0;
-    transform: translateY(-50px);
-    animation: fadeSlideIn 0.8s forwards;
-}
-
-@keyframes fadeSlideIn {
-    to { opacity: 1; transform: translateY(0); }
-}
+.fade-slide { opacity: 0; transform: translateY(-50px); animation: fadeSlideIn 0.8s forwards; }
+@keyframes fadeSlideIn { to { opacity: 1; transform: translateY(0); } }
 
 /* Główne kontenery */
-#main-site, #pykmc {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-}
+#main-site, #pykmc, #entropia, #kupnoItemow, #sprzedazItemow { display: none; position: relative; width: 100%; height: 100vh; }
+canvas { position: absolute; top:0; left:0; z-index:0; }
 
-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-}
+.content-wrapper { position: relative; z-index:1; width:100%; height:100%; display:flex; flex-direction:column; justify-content:space-between; align-items:center; }
+.content-top { margin-top:30px; display:flex; flex-direction:column; align-items:center; }
 
-.content-wrapper {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.content-top {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.neon-blue {
-    font-family: 'Arial Black', Arial, sans-serif;
-    font-size: 64px;
-    font-weight: bold;
-    color: #00f0ff;
-    text-shadow: 0 0 10px #00f0ff;
-}
-
-.neon-pink {
-    font-family: 'Arial Black', Arial, sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #FF69B4;
-    text-shadow: 0 0 10px #FF69B4;
-}
+.neon-blue { font-family:'Arial Black', Arial, sans-serif; font-size:64px; font-weight:bold; color:#00f0ff; text-shadow:0 0 10px #00f0ff; }
+.neon-pink { font-family:'Arial Black', Arial, sans-serif; font-size:28px; font-weight:bold; margin-top:10px; color:#FF69B4; text-shadow:0 0 10px #FF69B4; }
 
 /* Serwery i przyciski */
-.servers {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center; 
-    align-items: flex-start;
-    gap: 80px;
-    flex-wrap: nowrap;
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.server {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.server-name {
-    font-family: 'Minecraftia', monospace;
-    font-size: 4vw;
-    font-weight: bold;
-    min-font-size: 24px;
-}
-
-.white { color: #FFFFFF; text-shadow: 0 0 15px #FFFFFF; }
-.yellow { color: #FFFF00; text-shadow: 0 0 15px #FFFF00; }
-.pink { color: #FF69B4; text-shadow: 0 0 15px #FF69B4; }
+.servers { margin-top:20px; display:flex; justify-content:center; align-items:flex-start; gap:80px; flex-wrap:wrap; width:100%; max-width:800px; margin-left:auto; margin-right:auto; }
+.server { display:flex; flex-direction:column; align-items:center; }
+.server-name { font-family:'Minecraftia', monospace; font-size:4vw; font-weight:bold; min-font-size:24px; }
+.white { color:#FFFFFF; text-shadow:0 0 15px #FFFFFF; }
+.yellow { color:#FFFF00; text-shadow:0 0 15px #FFFF00; }
+.pink { color:#FF69B4; text-shadow:0 0 15px #FF69B4; }
 
 .pykmc-box {
     position: relative;
@@ -125,165 +56,67 @@ canvas {
     overflow: hidden;
     font-size: 3vw;
 }
-
-.pykmc-box span {
-    font-family: 'Minecraftia', monospace;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-    line-height: 1;
-    z-index: 2;
-    position: relative;
-}
-
+.pykmc-box span { font-family:'Minecraftia', monospace; font-weight:bold; transition: transform 0.3s ease; line-height:1; z-index:2; position:relative; }
 .pykmc-box:hover { transform: scale(1.05); }
 .pykmc-box:hover span { transform: translateY(-5px); }
 
 /* Gradient wewnętrzny przy najechaniu */
 .anarchia-btn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    z-index: 1;
-    opacity: 0;
+    content:"";
+    position:absolute; inset:0; border-radius:8px; z-index:1; opacity:0;
     transition: opacity 0.4s ease;
-    background: radial-gradient(circle at left, white, transparent 70%), 
-                radial-gradient(circle at right, #FFFF00, transparent 70%);
+    background: radial-gradient(circle at left, white, transparent 70%), radial-gradient(circle at right, #FFFF00, transparent 70%);
 }
-
-.anarchia-btn:hover::after { opacity: 1; }
-
+.anarchia-btn:hover::after { opacity:1; }
 .pykmc-btn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    z-index: 1;
-    opacity: 0;
+    content:"";
+    position:absolute; inset:0; border-radius:8px; z-index:1; opacity:0;
     transition: opacity 0.4s ease;
-    background: radial-gradient(circle at left, #FF69B4, transparent 70%), 
-                radial-gradient(circle at right, #FFFF00, transparent 70%);
+    background: radial-gradient(circle at left, #FF69B4, transparent 70%), radial-gradient(circle at right, #FFFF00, transparent 70%);
 }
-
-.pykmc-btn:hover::after { opacity: 1; }
+.pykmc-btn:hover::after { opacity:1; }
 
 /* Coming soon */
-.coming-soon {
-    font-family: 'Arial Black', Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    color: #888;
-    margin-top: 6px;
-    opacity: 0.9;
-}
+.coming-soon { font-family:'Arial Black', Arial, sans-serif; font-size:14px; font-weight:bold; color:#888; margin-top:6px; opacity:0.9; }
 
 /* Dolne przyciski */
-.bottom-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-}
-
-.info-box {
-    background-color: #111;
-    border: 2px solid white;
-    border-radius: 8px;
-    padding: 12px 18px;
-    width: 200px;
-    height: 70px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    font-family: 'Arial Black', Arial, sans-serif;
-    text-align: center;
-    line-height: 1.2;
-    box-shadow: 0 0 15px #ffffff20;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.info-box:hover { transform: scale(1.05); box-shadow: 0 0 25px #ffffff40; }
-
-.info-box .main-text { font-size: 16px; color: #fff; font-weight: bold; margin-bottom: 2px; }
-.info-box .sub-text { font-size: 12px; color: #aaa; line-height: 1.2; }
+.bottom-buttons { display:flex; justify-content:center; align-items:flex-start; gap:30px; flex-wrap:wrap; margin-bottom:10px; }
+.info-box { background-color:#111; border:2px solid white; border-radius:8px; padding:12px 18px; width:200px; height:70px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#888; font-family:'Arial Black', Arial, sans-serif; text-align:center; line-height:1.2; box-shadow:0 0 15px #ffffff20; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.info-box:hover { transform:scale(1.05); box-shadow:0 0 25px #ffffff40; }
+.info-box .main-text { font-size:16px; color:#fff; font-weight:bold; margin-bottom:2px; }
+.info-box .sub-text { font-size:12px; color:#aaa; line-height:1.2; }
 
 /* Podstrona PYKMC */
-#pykmc { display: none; position: relative; width: 100%; height: 100vh; text-align: center; padding-top: 20px; }
-
-.logo { width: 300px; max-width: 80%; margin: 20px auto; }
-
-.mode-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 50px;
-}
-
+#pykmc, #entropia, #kupnoItemow, #sprzedazItemow { text-align:center; padding-top:20px; }
+.logo { width:300px; max-width:80%; margin:20px auto; }
+.mode-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:50px; }
 .mode-card {
-    background-color: #111;
-    border: 2px solid #fff;
-    border-radius: 10px;
-    padding: 20px 30px;
-    width: 180px;
+    background-color:#111;
+    border:2px solid #fff;
+    border-radius:10px;
+    padding:20px 30px;
+    width:180px;
     transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(-50px);
+    cursor:pointer;
+    opacity:0;
+    transform:translateY(-50px);
     animation: fadeSlideIn 0.8s forwards;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
+.mode-card:hover { transform:scale(1.05); box-shadow:0 0 20px #fff; }
+.mode-card img { width:40px; height:40px; margin-bottom:10px; }
+.mode-card h3 { margin:0; font-size:18px; }
+.mode-card .coming-soon { font-size:12px; color:#888; margin-top:6px; }
 
-.mode-card:hover { transform: scale(1.05); box-shadow: 0 0 20px #fff; }
-.mode-card img { width: 40px; height: 40px; margin-bottom: 10px; }
-.mode-card h3 { margin: 0; font-size: 18px; }
-
-.mode-card .coming-soon { font-size: 12px; color: #888; margin-top: 6px; }
-
-.back-button {
-    margin-top: 30px;
-    background-color: #111;
-    border: 2px solid #fff;
-    border-radius: 8px;
-    padding: 12px 30px;
-    font-size: 18px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s;
-    opacity: 0;
-    transform: translateY(-50px);
-    animation: fadeSlideIn 0.8s forwards;
-}
-.back-button:hover { transform: scale(1.05); box-shadow: 0 0 15px #fff; }
+.back-button { margin-top:30px; background-color:#111; border:2px solid #fff; border-radius:8px; padding:12px 30px; font-size:18px; color:white; cursor:pointer; transition:all 0.3s; opacity:0; transform:translateY(-50px); animation:fadeSlideIn 0.8s forwards; }
+.back-button:hover { transform:scale(1.05); box-shadow:0 0 15px #fff; }
 
 /* RESPONSYWNOŚĆ */
-@media screen and (max-width: 1024px) {
-    .servers { gap: 50px; }
-    .pykmc-box { padding: 20px 40px; font-size: 4vw; }
-    .server-name { font-size: 6vw; }
-}
-
-@media screen and (max-width: 768px) {
-    .servers { flex-direction: column; gap: 30px; align-items: center; margin-top: 70px; }
-    .pykmc-box { font-size: 5vw; padding: 15px 30px; }
-    .server-name { font-size: 8vw; }
-    .bottom-buttons { flex-direction: column; gap: 20px; margin-bottom: 20px; }
-}
-
-@media screen and (max-width: 480px) {
-    .neon-blue { font-size: 8vw; }
-    .neon-pink { font-size: 5vw; }
-    .pykmc-box { padding: 12px 20px; font-size: 6vw; }
-    .server-name { font-size: 10vw; }
-    .mode-card { width: 140px; padding: 15px 20px; }
-    .back-button { padding: 10px 20px; font-size: 16px; }
-}
+@media screen and (max-width:1024px) { .servers { gap:50px; } .pykmc-box { padding:20px 40px; font-size:4vw; } .server-name { font-size:6vw; } }
+@media screen and (max-width:768px) { .servers { flex-direction:column; gap:30px; align-items:center; margin-top:70px; } .pykmc-box { font-size:5vw; padding:15px 30px; } .server-name { font-size:8vw; } .bottom-buttons { flex-direction:column; gap:20px; margin-bottom:20px; } }
+@media screen and (max-width:480px) { .neon-blue { font-size:8vw; } .neon-pink { font-size:5vw; } .pykmc-box { padding:12px 20px; font-size:6vw; } .server-name { font-size:10vw; } .mode-card { width:140px; padding:15px 20px; } .back-button { padding:10px 20px; font-size:16px; } }
 </style>
 </head>
 <body>
@@ -292,73 +125,77 @@ canvas {
     <canvas id="bgCanvas"></canvas>
     <div class="content-wrapper">
         <div class="content-top fade-slide">
-            <div class="neon-blue fade-slide" style="animation-delay: 0.2s;">KUPITEMKA.PL</div>
-            <div class="neon-pink fade-slide" style="animation-delay: 0.4s;">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
+            <div class="neon-blue fade-slide" style="animation-delay:0.2s;">KUPITEMKA.PL</div>
+            <div class="neon-pink fade-slide" style="animation-delay:0.4s;">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-            <div class="servers fade-slide" style="animation-delay: 0.6s;">
+            <div class="servers fade-slide" style="animation-delay:0.6s;">
                 <div class="server">
-                    <div class="server-name">
-                        <span class="white">ANARCHIA</span><span class="yellow">.GG</span>
-                    </div>
-                    <a href="#" class="pykmc-box anarchia-btn">
-                        <span class="white">ANARCHIA</span>
-                    </a>
+                    <div class="server-name"><span class="white">ANARCHIA</span><span class="yellow">.GG</span></div>
+                    <a href="#" class="pykmc-box anarchia-btn"><span class="white">ANARCHIA</span></a>
                     <div class="coming-soon">Coming soon...</div>
                 </div>
-
                 <div class="server">
-                    <div class="server-name">
-                        <span class="pink">PYK</span><span class="yellow">MC.PL</span>
-                    </div>
-                    <a href="#" class="pykmc-box pykmc-btn" id="pykmcBtn">
-                        <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
-                    </a>
+                    <div class="server-name"><span class="pink">PYK</span><span class="yellow">MC.PL</span></div>
+                    <a href="#" class="pykmc-box pykmc-btn" id="pykmcBtn"><span><span class="pink">PYK</span><span class="yellow">MC</span></span></a>
                 </div>
             </div>
         </div>
 
-        <div class="bottom-buttons fade-slide" style="animation-delay: 0.8s;">
-            <div class="info-box">
-                <div class="main-text">4+</div>
-                <div class="sub-text">Legitchecków</div>
-            </div>
-            <div class="info-box">
-                <div class="main-text">Częste konkursy</div>
-                <div class="sub-text">Promocje w weekendy i nie tylko!</div>
-            </div>
-            <div class="info-box">
-                <div class="main-text">Bezpiecznie i tanio</div>
-                <div class="sub-text">Szybkie i bezpieczne usługi</div>
-            </div>
+        <div class="bottom-buttons fade-slide" style="animation-delay:0.8s;">
+            <div class="info-box"><div class="main-text">4+</div><div class="sub-text">Legitchecków</div></div>
+            <div class="info-box"><div class="main-text">Częste konkursy</div><div class="sub-text">Promocje w weekendy i nie tylko!</div></div>
+            <div class="info-box"><div class="main-text">Bezpiecznie i tanio</div><div class="sub-text">Szybkie i bezpieczne usługi</div></div>
         </div>
     </div>
 </div>
 
 <div id="pykmc">
-    <img src="https://i.imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide" style="animation-delay: 0.2s;">
+    <img src="https://i.imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide" style="animation-delay:0.2s;">
     <div class="mode-grid">
-        <div class="mode-card" style="animation-delay:0.3s;">
+        <div class="mode-card" style="animation-delay:0.3s;" id="entropiaBtn">
             <img src="https://i.imgur.com/SYvgQoR.png" alt="Entropia">
-            <h3 style="color: #ff3333;">ENTROPIA</h3>
+            <h3 style="color:#ff3333;">ENTROPIA</h3>
             <div class="coming-soon">Każda tarcza się liczy!</div>
         </div>
         <div class="mode-card" style="animation-delay:0.4s;">
             <img src="https://i.imgur.com/HgmT348.png" alt="BoxPVP">
-            <h3 style="color: #00ffff;">BOXPVP</h3>
+            <h3 style="color:#00ffff;">BOXPVP</h3>
             <div class="coming-soon">Coming soon...</div>
         </div>
         <div class="mode-card" style="animation-delay:0.5s;">
             <img src="https://i.imgur.com/9cVA5Vl.png" alt="Skyblock">
-            <h3 style="color: #1e90ff;">SKYBLOCK</h3>
+            <h3 style="color:#1e90ff;">SKYBLOCK</h3>
             <div class="coming-soon">Coming soon...</div>
         </div>
         <div class="mode-card" style="animation-delay:0.6s;">
             <img src="https://i.imgur.com/YHCuu41.png" alt="ChestPVP">
-            <h3 style="color: #a020f0;">CHESTPVP</h3>
+            <h3 style="color:#a020f0;">CHESTPVP</h3>
             <div class="coming-soon">Coming soon...</div>
         </div>
     </div>
-    <button class="back-button fade-slide" id="backBtn" style="animation-delay: 0.7s;">Powrót</button>
+    <button class="back-button fade-slide" id="backBtn">Powrót</button>
+</div>
+
+<!-- Entropia - wybór kupno/sprzedaż -->
+<div id="entropia">
+    <h2>ENTROPIA</h2>
+    <div class="mode-grid">
+        <div class="mode-card" id="kupnoBtn"><h3>Kupno itemów</h3></div>
+        <div class="mode-card" id="sprzedazBtn"><h3>Sprzedaż itemów</h3></div>
+    </div>
+    <button class="back-button" id="backFromEntropia">Powrót</button>
+</div>
+
+<!-- Kupno Itemów -->
+<div id="kupnoItemow">
+    <h2>ZMIANKI</h2>
+    <button class="back-button" id="backFromKupno">Powrót</button>
+</div>
+
+<!-- Sprzedaż Itemów -->
+<div id="sprzedazItemow">
+    <h2>Aktualnie nie skupujemy itemów</h2>
+    <button class="back-button" id="backFromSprzedaz">Powrót</button>
 </div>
 
 <script>
@@ -367,59 +204,48 @@ const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
-
-window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-});
-
+window.addEventListener('resize', ()=>{width=canvas.width=window.innerWidth;height=canvas.height=window.innerHeight;});
 const dots = [];
-for (let i = 0; i < 80; i++) {
-    dots.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 3 + 1,
-        dx: (Math.random() - 0.5) * 0.5,
-        dy: (Math.random() - 0.5) * 0.5,
-        color: Math.random() < 0.5 ? '#00f0ff' : '#FF69B4'
-    });
-}
-
-function animate() {
-    ctx.clearRect(0, 0, width, height);
-    for (const d of dots) {
-        ctx.beginPath();
-        ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
-        ctx.fillStyle = d.color;
-        ctx.shadowColor = d.color;
-        ctx.shadowBlur = 10;
-        ctx.fill();
-        d.x += d.dx;
-        d.y += d.dy;
-        if (d.x < 0 || d.x > width) d.dx *= -1;
-        if (d.y < 0 || d.y > height) d.dy *= -1;
-    }
-    requestAnimationFrame(animate);
-}
+for(let i=0;i<80;i++){dots.push({x:Math.random()*width,y:Math.random()*height,radius:Math.random()*3+1,dx:(Math.random()-0.5)*0.5,dy:(Math.random()-0.5)*0.5,color:Math.random()<0.5?'#00f0ff':'#FF69B4'});}
+function animate(){ctx.clearRect(0,0,width,height);for(const d of dots){ctx.beginPath();ctx.arc(d.x,d.y,d.radius,0,Math.PI*2);ctx.fillStyle=d.color;ctx.shadowColor=d.color;ctx.shadowBlur=10;ctx.fill();d.x+=d.dx;d.y+=d.dy;if(d.x<0||d.x>width)d.dx*=-1;if(d.y<0||d.y>height)d.dy*=-1;}requestAnimationFrame(animate);}
 animate();
 
-// Przełączanie stron
-const pykmcBtn = document.getElementById('pykmcBtn');
+// Strony
 const mainSite = document.getElementById('main-site');
 const pykmcPage = document.getElementById('pykmc');
-const backBtn = document.getElementById('backBtn');
+const entropiaPage = document.getElementById('entropia');
+const kupnoPage = document.getElementById('kupnoItemow');
+const sprzedazPage = document.getElementById('sprzedazItemow');
+document.getElementById('pykmcBtn').addEventListener('click',()=>{mainSite.style.display='none';pykmcPage.style.display='block';});
+document.getElementById('backBtn').addEventListener('click',()=>{pykmcPage.style.display='none';mainSite.style.display='block';});
 
-pykmcBtn.addEventListener('click', e => {
-    e.preventDefault();
-    mainSite.style.display = 'none';
-    pykmcPage.style.display = 'block';
+// Entropia
+document.getElementById('entropiaBtn').addEventListener('click',()=>{
+    pykmcPage.style.display='none';
+    entropiaPage.style.display='block';
+});
+document.getElementById('backFromEntropia').addEventListener('click',()=>{
+    entropiaPage.style.display='none';
+    pykmcPage.style.display='block';
 });
 
-backBtn.addEventListener('click', () => {
-    pykmcPage.style.display = 'none';
-    mainSite.style.display = 'block';
+// Kupno/Sprzedaż
+document.getElementById('kupnoBtn').addEventListener('click',()=>{
+    entropiaPage.style.display='none';
+    kupnoPage.style.display='block';
+});
+document.getElementById('sprzedazBtn').addEventListener('click',()=>{
+    entropiaPage.style.display='none';
+    sprzedazPage.style.display='block';
+});
+document.getElementById('backFromKupno').addEventListener('click',()=>{
+    kupnoPage.style.display='none';
+    entropiaPage.style.display='block';
+});
+document.getElementById('backFromSprzedaz').addEventListener('click',()=>{
+    sprzedazPage.style.display='none';
+    entropiaPage.style.display='block';
 });
 </script>
 </body>
 </html>
-
