@@ -16,6 +16,10 @@ html, body {
     color: white;
     text-align: center;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Animacja wejścia */
@@ -35,26 +39,24 @@ html, body {
     font-size: 80px;
     font-weight: bold;
     color: #ff3333;
-    text-shadow: 0 0 5px #ff3333, 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 40px #ff0000, 0 0 60px #ff0000;
-    margin-top: 100px;
+    text-shadow: 0 0 5px #ff3333,
+                 0 0 10px #ff3333,
+                 0 0 20px #ff3333,
+                 0 0 40px #ff0000,
+                 0 0 60px #ff0000;
+    margin-bottom: 50px;
 }
 
 /* Mały przycisk Powrót */
 .back-button {
-    display: inline-block;
     padding: 10px 25px;
     font-size: 16px;
-    margin: 50px auto 0 auto;
-    text-align: center;
     border: 2px solid #fff;
     border-radius: 8px;
     background-color: #111;
     color: white;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
-    opacity: 0;
-    transform: translateY(-50px);
-    animation: fadeSlideIn 0.8s forwards;
     width: auto;
 }
 
@@ -72,10 +74,9 @@ html, body {
 </div>
 
 <script>
-// Przycisk Powrót wraca do strony PYKMC
 const backBtn = document.getElementById('backBtn');
 backBtn.addEventListener('click', () => {
-    window.location.href = 'pykmc.html'; // zmień na dokładną nazwę pliku podstrony PYKMC
+    window.location.href = 'pykmc.html'; // Podmień, jeśli strona PYKMC ma inną nazwę
 });
 </script>
 
