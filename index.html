@@ -85,7 +85,7 @@ canvas {
     justify-content: center; /* wycentrowanie całej grupy */
     align-items: flex-start;
     gap: 80px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100%;
     max-width: 800px;
     margin-left: auto;
@@ -270,8 +270,12 @@ canvas {
 }
 
 @media screen and (max-width: 768px) {
-    .servers { flex-direction: column; gap: 30px; }
-    .pykmc-box { padding: 15px 30px; font-size: 5vw; }
+    .servers {
+        flex-direction: column; /* pionowo przy wąskim ekranie */
+        gap: 30px;
+        align-items: center;
+    }
+    .pykmc-box { font-size: 5vw; padding: 15px 30px; }
     .server-name { font-size: 8vw; }
     .bottom-buttons { flex-direction: column; gap: 20px; }
 }
