@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENTROPIA - KUPITEMKA.PL</title>
+<link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
 
+/* Animacja wejścia */
+.fade-slide {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideIn 0.8s forwards;
+}
+
+@keyframes fadeSlideIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Neonowy napis ENTROPIA */
+.neon-red {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 80px;
+    font-weight: bold;
+    color: #ff3333;
+    text-shadow: 0 0 5px #ff3333, 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 40px #ff0000, 0 0 60px #ff0000;
+    margin-top: 100px;
+}
+
+/* Mały przycisk Powrót */
+.back-button {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 16px;
+    margin: 50px auto 0 auto;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background-color: #111;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideIn 0.8s forwards;
+    width: auto;
+}
+
+.back-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #fff;
+}
+</style>
+</head>
+<body>
+
+<div class="fade-slide">
+    <div class="neon-red fade-slide" style="animation-delay:0.2s;">ENTROPIA</div>
+    <button class="back-button fade-slide" id="backBtn" style="animation-delay:0.4s;">Powrót</button>
+</div>
+
+<script>
+// Przycisk Powrót wraca do strony PYKMC
+const backBtn = document.getElementById('backBtn');
+backBtn.addEventListener('click', () => {
+    window.location.href = 'pykmc.html'; // zmień na dokładną nazwę pliku podstrony PYKMC
+});
+</script>
+
+</body>
+</html>
