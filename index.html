@@ -23,18 +23,7 @@ html, body {
 
 .hidden { display: none; }
 
-.mobile-warning {
-    font-size: 24px;
-    color: #FF69B4;
-    text-shadow: 0 0 10px #FF69B4;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* Strona PC */
+/* Strona główna */
 #main-site {
     display: none;
     position: relative;
@@ -224,19 +213,47 @@ canvas {
     line-height: 1.2;
 }
 
-.test-text {
-    margin-top: 15px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #FF69B4;
-    text-shadow: 0 0 10px #FF69B4;
+/* Podstrona PYKMC */
+#pykmc-page {
     display: none;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at center, #1a1a1a, #000);
+    color: #fff;
+    font-family: 'Minecraftia', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#pykmc-page h1 {
+    font-size: 60px;
+    color: #FF69B4;
+    text-shadow: 0 0 20px #FF69B4;
+    margin-bottom: 40px;
+}
+
+.back-btn {
+    background: #111;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 15px 40px;
+    color: white;
+    font-family: 'Minecraftia', monospace;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #FFFF00;
 }
 </style>
 </head>
 <body>
 
-<!-- Strona główna PC -->
+<!-- Strona główna -->
 <div id="main-site">
     <canvas id="bgCanvas"></canvas>
     <div class="content-wrapper">
@@ -262,7 +279,6 @@ canvas {
                     <div id="pykmcBtn" class="pykmc-box pykmc-btn">
                         <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
                     </div>
-                    <div id="testText" class="test-text">Test 123</div>
                 </div>
             </div>
         </div>
@@ -282,6 +298,12 @@ canvas {
             </div>
         </div>
     </div>
+</div>
+
+<!-- Podstrona PYKMC -->
+<div id="pykmc-page">
+    <h1>Test 123</h1>
+    <button class="back-btn" id="backBtn">Powrót</button>
 </div>
 
 <!-- Wersja mobilna -->
@@ -305,8 +327,7 @@ window.addEventListener('resize', () => {
 });
 
 const dots = [];
-const dotCount = 80;
-for (let i = 0; i < dotCount; i++) {
+for (let i = 0; i < 80; i++) {
     dots.push({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -334,7 +355,7 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-// Automatyczne wykrycie urządzenia
+// Detekcja urządzenia
 window.onload = function() {
     const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
     if (isMobile) {
@@ -344,12 +365,18 @@ window.onload = function() {
         animate();
     }
 
-    // Obsługa kliknięcia przycisku PYKMC
-    const pykmcBtn = document.getElementById('pykmcBtn');
-    const testText = document.getElementById('testText');
+    // Kliknięcie PYKMC -> przejście do podstrony
+    document.getElementById('pykmcBtn').addEventListener('click', () => {
+        document.getElementById('main-site').style.display = 'none';
+        document.getElementById('pykmc-page').style.display = 'flex';
+        window.location.hash = "#pykmc";
+    });
 
-    pykmcBtn.addEventListener('click', () => {
-        testText.style.display = 'block';
+    // Powrót do strony głównej
+    document.getElementById('backBtn').addEventListener('click', () => {
+        document.getElementById('pykmc-page').style.display = 'none';
+        document.getElementById('main-site').style.display = 'block';
+        window.location.hash = "#glowna";
     });
 };
 </script>
