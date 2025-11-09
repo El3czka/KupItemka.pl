@@ -35,17 +35,25 @@ html, body {
     width: 100%;
     height: 100vh;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 50px;
 }
 
-.logo { width: 300px; max-width: 80%; margin: 20px auto; }
+/* Duży neonowy napis ENTROPIA */
+.neon-red {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+    color: #ff3333;
+    text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 30px #ff3333;
+    margin-bottom: 40px;
+}
 
+/* ZMIANKI */
 .mode-grid {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .mode-card {
@@ -69,11 +77,9 @@ html, body {
 .mode-card h3 { 
     margin: 0; 
     font-size: 18px; 
-    color: #ff3333; /* czerwony napis Entropia */
+    color: #ff3333; /* czerwony napis ZMIANKI */
     text-decoration: none;
 }
-
-.mode-card .coming-soon { font-size: 14px; color: #888; margin-top: 6px; }
 
 /* Przycisk Powrót */
 .back-button {
@@ -102,22 +108,24 @@ html, body {
 @media screen and (max-width: 480px) {
     .mode-card { width: 140px; padding: 15px 20px; }
     .back-button { padding: 8px 20px; font-size: 14px; }
+    .neon-red { font-size: 40px; }
 }
 </style>
 </head>
 <body>
 
 <div id="entropia-page">
-    <img src="https://i.imgur.com/SYvgQoR.png" alt="Entropia Logo" class="logo fade-slide" style="animation-delay:0.2s;">
-    
-    <h1 class="fade-slide" style="color:#ff3333; animation-delay:0.3s;">ENTROPIA</h1>
+    <!-- Duży neonowy napis ENTROPIA -->
+    <div class="neon-red fade-slide" style="animation-delay:0.2s;">ENTROPIA</div>
 
+    <!-- Jedno klikalne okno ZMIANKI -->
     <div class="mode-grid fade-slide" style="animation-delay:0.4s;">
         <div class="mode-card">
             <h3>ZMIANKI</h3>
         </div>
     </div>
 
+    <!-- Mały przycisk Powrót -->
     <button class="back-button fade-slide" id="backBtn" style="animation-delay:0.5s;">Powrót</button>
 </div>
 
