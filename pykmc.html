@@ -59,6 +59,9 @@ html, body {
     flex-direction: column;
     align-items: center;
     transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideIn 0.8s forwards;
 }
 
 .mode-card:hover { transform: scale(1.05); box-shadow: 0 0 20px #fff; }
@@ -91,6 +94,9 @@ html, body {
     color: white;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideIn 0.8s forwards;
 }
 
 .back-button:hover {
@@ -111,22 +117,22 @@ html, body {
     <img src="https://i.imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide" style="animation-delay: 0.2s;">
 
     <div class="mode-grid">
-        <div class="mode-card" id="entropiaCard" style="animation-delay:0.3s;">
+        <div class="mode-card fade-slide" id="entropiaCard" style="animation-delay:0.3s;">
             <img src="https://i.imgur.com/SYvgQoR.png" alt="Entropia">
             <h3>ENTROPIA</h3>
             <div class="coming-soon">Każda tarcza się liczy!</div>
         </div>
-        <div class="mode-card" id="boxpvpCard" style="animation-delay:0.4s;">
+        <div class="mode-card fade-slide" id="boxpvpCard" style="animation-delay:0.4s;">
             <img src="https://i.imgur.com/HgmT348.png" alt="BoxPVP">
             <h3>BOXPVP</h3>
             <div class="coming-soon">Coming soon...</div>
         </div>
-        <div class="mode-card" id="skyblockCard" style="animation-delay:0.5s;">
+        <div class="mode-card fade-slide" id="skyblockCard" style="animation-delay:0.5s;">
             <img src="https://i.imgur.com/9cVA5Vl.png" alt="Skyblock">
             <h3>SKYBLOCK</h3>
             <div class="coming-soon">Coming soon...</div>
         </div>
-        <div class="mode-card" id="chestpvpCard" style="animation-delay:0.6s;">
+        <div class="mode-card fade-slide" id="chestpvpCard" style="animation-delay:0.6s;">
             <img src="https://i.imgur.com/YHCuu41.png" alt="ChestPVP">
             <h3>CHESTPVP</h3>
             <div class="coming-soon">Coming soon...</div>
