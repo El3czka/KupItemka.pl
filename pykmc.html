@@ -5,50 +5,144 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PYKMC.PL</title>
 <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 <style>
-/* Usunięcie podkreśleń w linkach */
-.mode-card {
-    text-decoration: none;
-    color: inherit;
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
 }
 
-/* Przyciski powrotu mają być pod spodem */
-.back-button {
-    display: block;
-    margin: 50px auto 20px auto;
+/* Animacja wejścia */
+.fade-slide {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideIn 0.8s forwards;
+}
+
+@keyframes fadeSlideIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Podstrona PYKMC */
+#pykmc {
+    position: relative;
+    width: 100%;
+    height: 100vh;
     text-align: center;
+    padding-top: 20px;
+}
+
+.logo { width: 300px; max-width: 80%; margin: 20px auto; }
+
+.mode-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.mode-card {
+    background-color: #111;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 20px 30px;
+    width: 180px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mode-card:hover { transform: scale(1.05); box-shadow: 0 0 20px #fff; }
+
+.mode-card img { width: 40px; height: 40px; margin-bottom: 10px; }
+
+.mode-card h3 { 
+    margin: 0; 
+    font-size: 18px; 
+    text-decoration: none; /* usuwa podkreślenia */
+}
+
+.mode-card .coming-soon { font-size: 12px; color: #888; margin-top: 6px; }
+
+/* Przycisk Powrót */
+.back-button {
+    display: inline-block;      /* dopasowanie do treści */
+    padding: 10px 25px;
+    font-size: 16px;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background-color: #111;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.back-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #fff;
+}
+
+/* RESPONSYWNOŚĆ */
+@media screen and (max-width: 480px) {
+    .mode-card { width: 140px; padding: 15px 20px; }
+    .back-button { padding: 8px 20px; font-size: 14px; }
 }
 </style>
 </head>
 <body>
 
-<div id="pykmc-page">
+<div id="pykmc">
     <img src="https://i.imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide" style="animation-delay: 0.2s;">
+
     <div class="mode-grid">
-        <a href="entropia.html" class="mode-card" style="animation-delay:0.3s;">
+        <div class="mode-card" id="entropiaCard" style="animation-delay:0.3s;">
             <img src="https://i.imgur.com/SYvgQoR.png" alt="Entropia">
             <h3>ENTROPIA</h3>
             <div class="coming-soon">Każda tarcza się liczy!</div>
-        </a>
-        <a href="boxpvp.html" class="mode-card" style="animation-delay:0.4s;">
+        </div>
+        <div class="mode-card" style="animation-delay:0.4s;">
             <img src="https://i.imgur.com/HgmT348.png" alt="BoxPVP">
             <h3>BOXPVP</h3>
             <div class="coming-soon">Coming soon...</div>
-        </a>
-        <a href="skyblock.html" class="mode-card" style="animation-delay:0.5s;">
+        </div>
+        <div class="mode-card" style="animation-delay:0.5s;">
             <img src="https://i.imgur.com/9cVA5Vl.png" alt="Skyblock">
             <h3>SKYBLOCK</h3>
             <div class="coming-soon">Coming soon...</div>
-        </a>
-        <a href="chestpvp.html" class="mode-card" style="animation-delay:0.6s;">
+        </div>
+        <div class="mode-card" style="animation-delay:0.6s;">
             <img src="https://i.imgur.com/YHCuu41.png" alt="ChestPVP">
             <h3>CHESTPVP</h3>
             <div class="coming-soon">Coming soon...</div>
-        </a>
+        </div>
     </div>
-    <a href="index.html" class="back-button fade-slide" style="animation-delay: 0.7s;">Powrót</a>
+
+    <button class="back-button fade-slide" id="backBtn" style="animation-delay: 0.7s;">Powrót</button>
 </div>
 
+<script>
+// Przycisk Powrót
+const backBtn = document.getElementById('backBtn');
+backBtn.addEventListener('click', () => {
+    window.location.href = "index.html"; // wraca na stronę główną
+});
+
+// Entropia otwiera podstronę entropia.html
+const entropiaCard = document.getElementById('entropiaCard');
+entropiaCard.addEventListener('click', () => {
+    window.location.href = "entropia.html";
+});
+</script>
 </body>
 </html>
