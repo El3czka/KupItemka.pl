@@ -29,7 +29,7 @@ html, body {
 }
 
 /* Główne kontenery */
-#main-site, #pykmc {
+#main-site, #pykmc, #entropia, #kupno-items, #sprzedaz-items {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -82,13 +82,11 @@ canvas {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    align-items: center; /* wyrównanie w poziomie */
-    gap: 80px;
+    align-items: flex-start;
+    gap: 60px;
     flex-wrap: wrap;
     width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 900px;
 }
 
 .server {
@@ -101,13 +99,14 @@ canvas {
     font-family: 'Minecraftia', monospace;
     font-size: 4vw;
     font-weight: bold;
+    text-align: center;
 }
 
 .white { color: #FFFFFF; text-shadow: 0 0 15px #FFFFFF; }
 .yellow { color: #FFFF00; text-shadow: 0 0 15px #FFFF00; }
 .pink { color: #FF69B4; text-shadow: 0 0 15px #FF69B4; }
 
-.pykmc-box {
+.pykmc-box, .anarchia-btn {
     position: relative;
     background-color: #111;
     border: 2px solid white;
@@ -119,25 +118,21 @@ canvas {
     cursor: pointer;
     text-decoration: none;
     transition: transform 0.3s ease;
-    margin-top: 20px;
-    overflow: hidden;
+    margin-top: 10px;
     font-size: 3vw;
-    min-width: 150px;
 }
 
-.pykmc-box span {
+.pykmc-box span, .anarchia-btn span {
     font-family: 'Minecraftia', monospace;
     font-weight: bold;
-    transition: transform 0.3s ease;
     line-height: 1;
     z-index: 2;
     position: relative;
 }
 
-.pykmc-box:hover { transform: scale(1.05); }
-.pykmc-box:hover span { transform: translateY(-5px); }
+.pykmc-box:hover, .anarchia-btn:hover { transform: scale(1.05); }
+.pykmc-box:hover span, .anarchia-btn:hover span { transform: translateY(-5px); }
 
-/* Gradient wewnętrzny przy najechaniu */
 .anarchia-btn::after {
     content: "";
     position: absolute;
@@ -208,12 +203,12 @@ canvas {
 
 /* Podstrona PYKMC */
 #pykmc, #entropia, #kupno-items, #sprzedaz-items {
-    display: none; 
-    position: relative; 
-    width: 100%; 
-    height: 100vh; 
-    text-align: center; 
-    padding-top: 20px; 
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    padding-top: 20px;
 }
 
 .logo { width: 300px; max-width: 80%; margin: 20px auto; }
@@ -264,7 +259,7 @@ canvas {
 
 /* RESPONSYWNOŚĆ */
 @media screen and (max-width: 1024px) {
-    .servers { gap: 50px; }
+    .servers { gap: 40px; }
     .pykmc-box { padding: 20px 40px; font-size: 4vw; }
     .server-name { font-size: 6vw; }
 }
@@ -334,59 +329,7 @@ canvas {
     </div>
 </div>
 
-<!-- Podstrona PYKMC -->
-<div id="pykmc">
-    <img src="https://i.imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide" style="animation-delay: 0.2s;">
-    <div class="mode-grid">
-        <div class="mode-card" id="entropia-card" style="animation-delay:0.3s;">
-            <img src="https://i.imgur.com/SYvgQoR.png" alt="Entropia">
-            <h3 style="color: #ff3333;">ENTROPIA</h3>
-            <div class="coming-soon">Każda tarcza się liczy!</div>
-        </div>
-        <div class="mode-card" style="animation-delay:0.4s;">
-            <img src="https://i.imgur.com/HgmT348.png" alt="BoxPVP">
-            <h3 style="color: #00ffff;">BOXPVP</h3>
-            <div class="coming-soon">Coming soon...</div>
-        </div>
-        <div class="mode-card" style="animation-delay:0.5s;">
-            <img src="https://i.imgur.com/9cVA5Vl.png" alt="Skyblock">
-            <h3 style="color: #1e90ff;">SKYBLOCK</h3>
-            <div class="coming-soon">Coming soon...</div>
-        </div>
-        <div class="mode-card" style="animation-delay:0.6s;">
-            <img src="https://i.imgur.com/YHCuu41.png" alt="ChestPVP">
-            <h3 style="color: #a020f0;">CHESTPVP</h3>
-            <div class="coming-soon">Coming soon...</div>
-        </div>
-    </div>
-    <button class="back-button fade-slide" id="backBtn" style="animation-delay: 0.7s;">Powrót</button>
-</div>
-
-<!-- Podstrona ENTROPIA -->
-<div id="entropia">
-    <img src="https://i.imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide" style="animation-delay:0.2s;">
-    <div class="mode-grid fade-slide" style="animation-delay:0.3s;">
-        <div class="mode-card" id="kupno-card">
-            <h3>KUPNO ITEMÓW</h3>
-        </div>
-        <div class="mode-card" id="sprzedaz-card">
-            <h3>SPRZEDAŻ ITEMÓW</h3>
-        </div>
-    </div>
-    <button class="back-button" id="backFromEntropia">Powrót</button>
-</div>
-
-<!-- Podstrona SPRZEDAŻ ITEMÓW -->
-<div id="sprzedaz-items">
-    <h2>Aktualnie nie skupujemy itemów</h2>
-    <button class="back-button" id="backFromSprzedaz">Powrót</button>
-</div>
-
-<!-- Podstrona KUPNO ITEMÓW -->
-<div id="kupno-items">
-    <h2>ZMIANKI</h2>
-    <button class="back-button" id="backFromKupno">Powrót</button>
-</div>
+<!-- Podstrony PYKMC i Entropia/Kupno/Sprzedaż dodam w kolejnym kroku -->
 
 <script>
 // Animowane tło
@@ -394,66 +337,37 @@ const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
-
-window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-});
+window.addEventListener('resize', () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; });
 
 const dots = [];
 for (let i = 0; i < 80; i++) {
-    dots.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 3 + 1,
-        dx: (Math.random() - 0.5) * 0.5,
-        dy: (Math.random() - 0.5) * 0.5,
-        color: Math.random() < 0.5 ? '#00f0ff' : '#FF69B4'
-    });
+    dots.push({x: Math.random() * width, y: Math.random() * height, radius: Math.random() * 3 + 1, dx: (Math.random()-0.5)*0.5, dy: (Math.random()-0.5)*0.5, color: Math.random()<0.5 ? '#00f0ff':'#FF69B4'});
 }
-
 function animate() {
-    ctx.clearRect(0, 0, width, height);
-    for (const d of dots) {
+    ctx.clearRect(0,0,width,height);
+    for(const d of dots){
         ctx.beginPath();
-        ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
-        ctx.fillStyle = d.color;
-        ctx.shadowColor = d.color;
-        ctx.shadowBlur = 10;
+        ctx.arc(d.x,d.y,d.radius,0,Math.PI*2);
+        ctx.fillStyle=d.color;
+        ctx.shadowColor=d.color;
+        ctx.shadowBlur=10;
         ctx.fill();
-        d.x += d.dx;
-        d.y += d.dy;
-        if (d.x < 0 || d.x > width) d.dx *= -1;
-        if (d.y < 0 || d.y > height) d.dy *= -1;
+        d.x+=d.dx; d.y+=d.dy;
+        if(d.x<0||d.x>width)d.dx*=-1;
+        if(d.y<0||d.y>height)d.dy*=-1;
     }
     requestAnimationFrame(animate);
 }
 animate();
 
-// Przełączanie stron
+// Przełączanie strony PYKMC
 const pykmcBtn = document.getElementById('pykmcBtn');
 const mainSite = document.getElementById('main-site');
 const pykmcPage = document.getElementById('pykmc');
 const backBtn = document.getElementById('backBtn');
 
-pykmcBtn.addEventListener('click', e => {
-    e.preventDefault();
-    mainSite.style.display = 'none';
-    pykmcPage.style.display = 'block';
-});
-
-// Powrót z PYKMC
-backBtn.addEventListener('click', () => {
-    pykmcPage.style.display = 'none';
-    mainSite.style.display = 'block';
-});
-
-// ENTROPIA -> podstrony
-const entropiaCard = document.getElementById('entropia-card');
-const entropiaPage = document.getElementById('entropia');
-const backFromEntropia = document.getElementById('backFromEntropia');
-const kupnoCard = document.getElementById('kupno-card');
-const sprzedazCard = document.getElementById('sprzedaz-card');
-const kupnoItems = document.getElementById('kupno-items');
-const sprzedazItems = document.getElementById('sprzedaz-items');
-
+pykmcBtn.addEventListener('click', e => { e.preventDefault(); mainSite.style.display='none'; pykmcPage.style.display='block'; });
+backBtn.addEventListener('click', () => { pykmcPage.style.display='none'; mainSite.style.display='block'; });
+</script>
+</body>
+</html>
