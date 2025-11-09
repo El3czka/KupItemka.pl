@@ -71,11 +71,16 @@ html, body {
     text-decoration: none; /* usuwa podkreślenia */
 }
 
+#entropiaCard h3 { color: #ff3333; }
+#boxpvpCard h3 { color: #00ffff; }
+#skyblockCard h3 { color: #1e90ff; }
+#chestpvpCard h3 { color: #a020f0; }
+
 .mode-card .coming-soon { font-size: 12px; color: #888; margin-top: 6px; }
 
 /* Przycisk Powrót */
 .back-button {
-    display: inline-block;      /* dopasowanie do treści */
+    display: inline-block;
     padding: 10px 25px;
     font-size: 16px;
     margin: 20px auto;
@@ -111,17 +116,17 @@ html, body {
             <h3>ENTROPIA</h3>
             <div class="coming-soon">Każda tarcza się liczy!</div>
         </div>
-        <div class="mode-card" style="animation-delay:0.4s;">
+        <div class="mode-card" id="boxpvpCard" style="animation-delay:0.4s;">
             <img src="https://i.imgur.com/HgmT348.png" alt="BoxPVP">
             <h3>BOXPVP</h3>
             <div class="coming-soon">Coming soon...</div>
         </div>
-        <div class="mode-card" style="animation-delay:0.5s;">
+        <div class="mode-card" id="skyblockCard" style="animation-delay:0.5s;">
             <img src="https://i.imgur.com/9cVA5Vl.png" alt="Skyblock">
             <h3>SKYBLOCK</h3>
             <div class="coming-soon">Coming soon...</div>
         </div>
-        <div class="mode-card" style="animation-delay:0.6s;">
+        <div class="mode-card" id="chestpvpCard" style="animation-delay:0.6s;">
             <img src="https://i.imgur.com/YHCuu41.png" alt="ChestPVP">
             <h3>CHESTPVP</h3>
             <div class="coming-soon">Coming soon...</div>
