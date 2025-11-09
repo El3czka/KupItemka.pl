@@ -86,30 +86,14 @@ canvas { position: absolute; top:0; left:0; z-index:0; }
 .info-box .main-text { font-size:16px; color:#fff; font-weight:bold; margin-bottom:2px; }
 .info-box .sub-text { font-size:12px; color:#aaa; line-height:1.2; }
 
-/* Podstrona PYKMC */
-#pykmc, #entropia, #kupnoItemow, #sprzedazItemow { text-align:center; padding-top:20px; }
+/* Podstrona PYKMC i Entropia */
 .logo { width:300px; max-width:80%; margin:20px auto; }
 .mode-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:50px; }
-.mode-card {
-    background-color:#111;
-    border:2px solid #fff;
-    border-radius:10px;
-    padding:20px 30px;
-    width:180px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor:pointer;
-    opacity:0;
-    transform:translateY(-50px);
-    animation: fadeSlideIn 0.8s forwards;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
+.mode-card { background-color:#111; border:2px solid #fff; border-radius:10px; padding:20px 30px; width:180px; transition: transform 0.3s, box-shadow 0.3s; cursor:pointer; opacity:0; transform:translateY(-50px); animation: fadeSlideIn 0.8s forwards; display:flex; flex-direction:column; align-items:center; }
 .mode-card:hover { transform:scale(1.05); box-shadow:0 0 20px #fff; }
 .mode-card img { width:40px; height:40px; margin-bottom:10px; }
 .mode-card h3 { margin:0; font-size:18px; }
 .mode-card .coming-soon { font-size:12px; color:#888; margin-top:6px; }
-
 .back-button { margin-top:30px; background-color:#111; border:2px solid #fff; border-radius:8px; padding:12px 30px; font-size:18px; color:white; cursor:pointer; transition:all 0.3s; opacity:0; transform:translateY(-50px); animation:fadeSlideIn 0.8s forwards; }
 .back-button:hover { transform:scale(1.05); box-shadow:0 0 15px #fff; }
 
@@ -121,7 +105,8 @@ canvas { position: absolute; top:0; left:0; z-index:0; }
 </head>
 <body>
 
-<div id="main-site">
+<!-- Główna strona -->
+<div id="main-site" style="display:block;">
     <canvas id="bgCanvas"></canvas>
     <div class="content-wrapper">
         <div class="content-top fade-slide">
@@ -149,6 +134,7 @@ canvas { position: absolute; top:0; left:0; z-index:0; }
     </div>
 </div>
 
+<!-- Strona PYKMC -->
 <div id="pykmc">
     <img src="https://i.imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide" style="animation-delay:0.2s;">
     <div class="mode-grid">
@@ -176,7 +162,7 @@ canvas { position: absolute; top:0; left:0; z-index:0; }
     <button class="back-button fade-slide" id="backBtn">Powrót</button>
 </div>
 
-<!-- Entropia - wybór kupno/sprzedaż -->
+<!-- Entropia -->
 <div id="entropia">
     <h2>ENTROPIA</h2>
     <div class="mode-grid">
@@ -216,6 +202,7 @@ const pykmcPage = document.getElementById('pykmc');
 const entropiaPage = document.getElementById('entropia');
 const kupnoPage = document.getElementById('kupnoItemow');
 const sprzedazPage = document.getElementById('sprzedazItemow');
+
 document.getElementById('pykmcBtn').addEventListener('click',()=>{mainSite.style.display='none';pykmcPage.style.display='block';});
 document.getElementById('backBtn').addEventListener('click',()=>{pykmcPage.style.display='none';mainSite.style.display='block';});
 
