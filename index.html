@@ -18,49 +18,28 @@ html, body {
     background: #000;
     color: white;
     text-align: center;
-    overflow: hidden; /* brak scrolla na starcie */
+    overflow: hidden;
 }
 
 .hidden { display: none; }
 
-/* Ekran wyboru urządzenia */
-#device-prompt {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    gap: 20px;
-}
-
-#device-prompt button {
-    padding: 12px 24px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 6px;
-    border: none;
-    transition: all 0.3s ease;
-}
-
-#device-prompt button:hover {
-    transform: scale(1.1);
-}
-
-/* Komunikat mobilny */
 .mobile-warning {
     font-size: 24px;
     color: #FF69B4;
     text-shadow: 0 0 10px #FF69B4;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 /* Strona PC */
 #main-site {
-    display: none; /* ukryta na starcie */
+    display: none;
     position: relative;
     width: 100%;
-    height: 100vh; /* pełna wysokość */
+    height: 100vh;
 }
 
 canvas {
@@ -77,7 +56,7 @@ canvas {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* górna część przy górze, dolna przy dole */
+    justify-content: space-between;
 }
 
 .content-top {
@@ -205,7 +184,7 @@ canvas {
     align-items: flex-start;
     gap: 50px;
     flex-wrap: wrap;
-    margin-bottom: 40px; /* przyklejone do dołu */
+    margin-bottom: 40px;
 }
 
 .info-box {
@@ -247,13 +226,6 @@ canvas {
 </style>
 </head>
 <body>
-
-<!-- Ekran wyboru urządzenia -->
-<div id="device-prompt">
-    <h1>Na jakim urządzeniu jesteś?</h1>
-    <button onclick="chooseDevice('pc')">PC</button>
-    <button onclick="chooseDevice('mobile')">Telefon</button>
-</div>
 
 <!-- Strona główna PC -->
 <div id="main-site">
@@ -305,23 +277,12 @@ canvas {
 <!-- Wersja mobilna -->
 <div id="mobile-site" class="hidden">
     <div class="mobile-warning">
-        Ta strona nie jest jeszcze zoptymalizowana na telefon.  
-        Spróbuj otworzyć ją na PC.
+        Ta strona nie jest jeszcze zoptymalizowana na telefon.<br>
+        Spróbuj otworzyć ją na PC 💻
     </div>
 </div>
 
 <script>
-// Funkcja wyboru urządzenia
-function chooseDevice(device) {
-    document.getElementById('device-prompt').style.display = 'none';
-    if(device === 'pc') {
-        document.getElementById('main-site').style.display = 'block';
-        document.body.style.overflow = 'visible';
-    } else {
-        document.getElementById('mobile-site').style.display = 'block';
-    }
-}
-
 // Animowane tło
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
@@ -362,13 +323,15 @@ function animate() {
     }
     requestAnimationFrame(animate);
 }
-animate();
 
 // Automatyczne wykrycie urządzenia
 window.onload = function() {
     const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
-    if(isMobile) {
-        chooseDevice('mobile');
+    if (isMobile) {
+        document.getElementById('mobile-site').style.display = 'block';
+    } else {
+        document.getElementById('main-site').style.display = 'block';
+        animate();
     }
 };
 </script>
