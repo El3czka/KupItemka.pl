@@ -17,19 +17,19 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
       overflow: hidden;
     }
 
-    /* Napis ENTROPIA – styl jak KUPITEMKA.PL */
+    /* Napis ENTROPIA */
     .entropia-title {
       font-size: 64px;
       font-weight: bold;
       color: #ff3b3b;
       text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
-      margin-top: -120px;
-      margin-bottom: 80px;
+      margin-top: 60px;
+      margin-bottom: 100px;
       animation: fadeSlideIn 0.8s ease forwards;
       opacity: 0;
       transform: translateY(-30px);
@@ -66,18 +66,17 @@
       box-shadow: 0 0 12px #fff;
     }
 
-    /* Przycisk "POWRÓT" taki jak na pykmc.html */
+    /* Przycisk POWRÓT — identyczny jak w pykmc.html */
     .back-button {
-      position: fixed;
-      bottom: 40px;
-      padding: 10px 30px;
+      margin-top: 60px;
       background-color: #111;
       border: 2px solid #fff;
-      border-radius: 10px;
+      border-radius: 8px;
+      padding: 12px 30px;
+      font-size: 18px;
       color: white;
       cursor: pointer;
-      font-size: 18px;
-      transition: 0.3s;
+      transition: all 0.3s;
       text-decoration: none;
       animation: fadeSlideIn 0.8s ease forwards;
       opacity: 0;
@@ -86,7 +85,7 @@
     }
 
     .back-button:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       box-shadow: 0 0 15px #fff;
     }
 
