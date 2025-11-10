@@ -19,15 +19,17 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      overflow: hidden;
     }
 
-    /* Neonowy napis (delikatny) */
-    .neon-red {
+    /* Napis ENTROPIA – styl jak KUPITEMKA.PL */
+    .entropia-title {
       font-size: 64px;
       font-weight: bold;
-      color: #ff3333;
-      text-shadow: 0 0 6px #ff3333, 0 0 12px #b30000;
-      margin-bottom: 50px;
+      color: #ff3b3b;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+      margin-top: -120px;
+      margin-bottom: 80px;
       animation: fadeSlideIn 0.8s ease forwards;
       opacity: 0;
       transform: translateY(-30px);
@@ -41,40 +43,17 @@
       }
     }
 
-    /* Przyciski */
+    /* Przycisk "ULEPSZENIA" */
     .button {
       background-color: #111;
       border: 2px solid white;
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 15px 40px;
       font-size: 20px;
       color: white;
       text-decoration: none;
       cursor: pointer;
       transition: all 0.3s;
-      margin: 10px;
-      text-transform: uppercase;
-      animation: fadeSlideIn 0.8s ease forwards;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #fff;
-    }
-
-    .back-button {
-      font-size: 16px;
-      padding: 10px 25px;
-      position: fixed;
-      bottom: 40px;
-      background-color: #111;
-      border: 2px solid #fff;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
       text-transform: uppercase;
       animation: fadeSlideIn 0.8s ease forwards;
       opacity: 0;
@@ -82,18 +61,42 @@
       animation-delay: 0.4s;
     }
 
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px #fff;
+    }
+
+    /* Przycisk "POWRÓT" taki jak na pykmc.html */
+    .back-button {
+      position: fixed;
+      bottom: 40px;
+      padding: 10px 30px;
+      background-color: #111;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+      transition: 0.3s;
+      text-decoration: none;
+      animation: fadeSlideIn 0.8s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+      animation-delay: 0.6s;
+    }
+
     .back-button:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 12px #fff;
+      box-shadow: 0 0 15px #fff;
     }
 
   </style>
 </head>
 <body>
 
-  <h1 class="neon-red">ENTROPIA</h1>
+  <h1 class="entropia-title">ENTROPIA</h1>
 
-  <a href="#" class="button" style="animation-delay: 0.3s;">ULEPSZENIA</a>
+  <a href="#" class="button">ULEPSZENIA</a>
 
   <a href="pykmc.html" class="back-button">POWRÓT</a>
 
