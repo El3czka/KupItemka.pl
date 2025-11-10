@@ -19,23 +19,10 @@
       align-items: center;
       justify-content: flex-start;
       text-align: center;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
-    /* Napis ENTROPIA */
-    .entropia-title {
-      font-size: 64px;
-      font-weight: bold;
-      color: #ff3b3b;
-      text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
-      margin-top: 60px;
-      margin-bottom: 100px;
-      animation: fadeSlideIn 0.8s ease forwards;
-      opacity: 0;
-      transform: translateY(-30px);
-      animation-delay: 0.2s;
-    }
-
+    /* animacja wejścia */
     @keyframes fadeSlideIn {
       to {
         opacity: 1;
@@ -43,7 +30,27 @@
       }
     }
 
-    /* Styl przycisku jak na PYKMC */
+    .entropia-title {
+      font-size: 64px;
+      font-weight: bold;
+      color: #ff3b3b;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+      margin-top: 50px;
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(-30px);
+      animation: fadeSlideIn 0.8s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    .mode-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
     .mode-card {
       background-color: #111;
       border: 2px solid #fff;
@@ -52,10 +59,9 @@
       width: 180px;
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
-      animation: fadeSlideIn 0.8s ease forwards;
       opacity: 0;
       transform: translateY(30px);
-      animation-delay: 0.4s;
+      animation: fadeSlideIn 0.8s ease forwards;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -78,9 +84,8 @@
       color: #fff;
     }
 
-    /* Przycisk POWRÓT */
     .back-button {
-      margin-top: 60px;
+      margin-bottom: 50px;
       background-color: #111;
       border: 2px solid #fff;
       border-radius: 8px;
@@ -90,9 +95,9 @@
       cursor: pointer;
       transition: all 0.3s;
       text-decoration: none;
-      animation: fadeSlideIn 0.8s ease forwards;
       opacity: 0;
       transform: translateY(30px);
+      animation: fadeSlideIn 0.8s ease forwards;
       animation-delay: 0.6s;
     }
 
@@ -100,15 +105,38 @@
       transform: scale(1.05);
       box-shadow: 0 0 15px #fff;
     }
+
+    @media (max-width: 600px) {
+      .entropia-title { font-size: 9vw; }
+      .mode-card { width: 150px; padding: 15px 20px; }
+      .back-button { padding: 10px 20px; font-size: 16px; }
+    }
   </style>
 </head>
 <body>
 
   <h1 class="entropia-title">ENTROPIA</h1>
 
-  <div class="mode-card">
-    <img src="https://i.imgur.com/Ix1eH4x.png" alt="Ulepszenia">
-    <h3>ULEPSZENIA</h3>
+  <div class="mode-grid">
+    <div class="mode-card" style="animation-delay:0.3s;">
+      <img src="https://i.imgur.com/Ix1eH4x.png" alt="Ulepszenia">
+      <h3>ULEPSZENIA</h3>
+    </div>
+
+    <div class="mode-card" style="animation-delay:0.4s;">
+      <img src="https://i.imgur.com/E42DuJx.png" alt="Narzędzia">
+      <h3>NARZĘDZIA</h3>
+    </div>
+
+    <div class="mode-card" style="animation-delay:0.5s;">
+      <img src="https://i.imgur.com/v0EI9Mn.png" alt="Sety">
+      <h3>SETY</h3>
+    </div>
+
+    <div class="mode-card" style="animation-delay:0.6s;">
+      <img src="https://i.imgur.com/7s9e7dt.png" alt="Przydatne">
+      <h3>PRZYDATNE</h3>
+    </div>
   </div>
 
   <a href="pykmc.html" class="back-button">POWRÓT</a>
