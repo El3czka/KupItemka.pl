@@ -43,30 +43,42 @@
       }
     }
 
-    /* Przycisk "ULEPSZENIA" */
-    .button {
+    /* Przyciski w stylu PYKMC */
+    .mode-card {
       background-color: #111;
-      border: 2px solid white;
+      border: 2px solid #fff;
       border-radius: 10px;
-      padding: 15px 40px;
-      font-size: 20px;
-      color: white;
-      text-decoration: none;
+      padding: 20px 30px;
+      width: 180px;
+      transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
-      transition: all 0.3s;
-      text-transform: uppercase;
       animation: fadeSlideIn 0.8s ease forwards;
       opacity: 0;
       transform: translateY(30px);
       animation-delay: 0.4s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .button:hover {
+    .mode-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 12px #fff;
+      box-shadow: 0 0 20px #fff;
     }
 
-    /* Przycisk POWRÓT — identyczny jak w pykmc.html */
+    .mode-card img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .mode-card h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    /* Przycisk POWRÓT */
     .back-button {
       margin-top: 60px;
       background-color: #111;
@@ -88,14 +100,16 @@
       transform: scale(1.05);
       box-shadow: 0 0 15px #fff;
     }
-
   </style>
 </head>
 <body>
 
   <h1 class="entropia-title">ENTROPIA</h1>
 
-  <a href="#" class="button">ULEPSZENIA</a>
+  <div class="mode-card">
+    <img src="https://i.imgur.com/6bK4MZQ.png" alt="Ulepszenia">
+    <h3>ULEPSZENIA</h3>
+  </div>
 
   <a href="pykmc.html" class="back-button">POWRÓT</a>
 
