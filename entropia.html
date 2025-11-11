@@ -1,150 +1,156 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ENTROPIA | PYKMC.PL</title>
-  <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-      color: white;
-      font-family: 'Minecraftia', monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      text-align: center;
-      overflow-x: hidden;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entropia - PYKMC.PL</title>
+<link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
 
-    /* animacja wejścia */
-    @keyframes fadeSlideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.fade-slide {
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: fadeSlideIn 0.8s forwards;
+}
 
-    .entropia-title {
-      font-size: 64px;
-      font-weight: bold;
-      color: #ff3b3b;
-      text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
-      margin-top: 50px;
-      margin-bottom: 60px;
-      opacity: 0;
-      transform: translateY(-30px);
-      animation: fadeSlideIn 0.8s ease forwards;
-      animation-delay: 0.2s;
-    }
+@keyframes fadeSlideIn {
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    .mode-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      margin-bottom: 60px;
-    }
+/* Nagłówek ENTROPIA */
+.neon-red {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 64px;
+  font-weight: bold;
+  color: #ff3333;
+  text-shadow: 0 0 8px #ff3333, 0 0 16px #ff0000;
+  margin-top: 40px;
+}
 
-    .mode-card {
-      background-color: #111;
-      border: 2px solid #fff;
-      border-radius: 10px;
-      padding: 20px 30px;
-      width: 180px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeSlideIn 0.8s ease forwards;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+/* Siatka kategorii */
+.mode-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 80px;
+}
 
-    .mode-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #fff;
-    }
+/* Kafelki kategorii */
+.mode-card {
+  background-color: #111;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 25px 35px;
+  width: 180px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: fadeSlideIn 0.8s forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    .mode-card img {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 10px;
-    }
+.mode-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #fff;
+}
 
-    .mode-card h3 {
-      margin: 0;
-      font-size: 18px;
-      color: #fff;
-    }
+.mode-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
 
-    .back-button {
-      margin-bottom: 50px;
-      background-color: #111;
-      border: 2px solid #fff;
-      border-radius: 8px;
-      padding: 12px 30px;
-      font-size: 18px;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-decoration: none;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeSlideIn 0.8s ease forwards;
-      animation-delay: 0.6s;
-    }
+.mode-card h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #fff;
+}
 
-    .back-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #fff;
-    }
+/* Przycisk powrotu */
+.back-button {
+  margin-top: 60px;
+  background-color: #111;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: fadeSlideIn 0.8s forwards;
+}
 
-    @media (max-width: 600px) {
-      .entropia-title { font-size: 9vw; }
-      .mode-card { width: 150px; padding: 15px 20px; }
-      .back-button { padding: 10px 20px; font-size: 16px; }
-    }
-  </style>
+.back-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #fff;
+}
+
+/* Responsywność */
+@media screen and (max-width: 768px) {
+  .neon-red { font-size: 10vw; }
+  .mode-card { width: 140px; padding: 15px 20px; }
+}
+</style>
 </head>
 <body>
 
-  <h1 class="entropia-title">ENTROPIA</h1>
+<h1 class="neon-red fade-slide" style="animation-delay: 0.1s;">ENTROPIA</h1>
 
-  <div class="mode-grid">
-    <div class="mode-card" style="animation-delay:0.3s;">
-      <img src="https://i.imgur.com/5x3lizU.png" alt="Ulepszenia">
-      <h3>ULEPSZENIA</h3>
-    </div>
-
-    <div class="mode-card" style="animation-delay:0.4s;">
-      <img src="https://i.imgur.com/0TBUXSW.png" alt="NARZEDZIA">
-      <h3>NARZEDZIA</h3>
-    </div>
-
-    <div class="mode-card" style="animation-delay:0.5s;">
-      <img src="https://i.imgur.com/v0EI9Mn.png" alt="Sety">
-      <h3>SETY</h3>
-    </div>
-
-    <div class="mode-card" style="animation-delay:0.6s;">
-      <img src="https://i.imgur.com/mMRulYZ.png" alt="Przydatne">
-      <h3>PRZYDATNE</h3>
-    </div>
-
-    <div class="mode-card" style="animation-delay:0.7s;">
-      <img src="https://i.imgur.com/KdHUPCV.png" alt="Inne">
-      <h3>INNE</h3>
-    </div>
+<div class="mode-grid">
+  <div class="mode-card" style="animation-delay: 0.2s;">
+    <img src="https://imgur.com/5x3lizU.png" alt="Ulepszenia">
+    <h3>ULEPSZENIA</h3>
   </div>
+  <div class="mode-card" style="animation-delay: 0.3s;">
+    <img src="https://imgur.com/0TBUXSW.png" alt="Narzedzia">
+    <h3>NARZEDZIA</h3>
+  </div>
+  <div class="mode-card" style="animation-delay: 0.4s;">
+    <img src="https://imgur.com/v0EI9Mn.png" alt="Sety">
+    <h3>SETY</h3>
+  </div>
+  <div class="mode-card" style="animation-delay: 0.5s;">
+    <img src="https://imgur.com/mMRulYZ.png" alt="Przydatne">
+    <h3>PRZYDATNE</h3>
+  </div>
+  <div class="mode-card" style="animation-delay: 0.6s;">
+    <img src="https://imgur.com/KdHUPCV.png" alt="Inne">
+    <h3>INNE</h3>
+  </div>
+  <div class="mode-card" style="animation-delay: 0.7s;">
+    <img src="https://imgur.com/DwJeHNB.png" alt="Eventowe">
+    <h3>EVENTOWE</h3>
+  </div>
+  <div class="mode-card" style="animation-delay: 0.8s;">
+    <img src="https://imgur.com/BrMeg8I.png" alt="Hajs">
+    <h3>HAJS</h3>
+  </div>
+  <div class="mode-card" style="animation-delay: 0.9s;">
+    <img src="https://imgur.com/tcPiKZq.png" alt="Metody na zarobek">
+    <h3>METODY NA ZAROBEK</h3>
+  </div>
+</div>
 
-  <a href="pykmc.html" class="back-button">POWRÓT</a>
+<button class="back-button fade-slide" style="animation-delay: 1.0s;" onclick="window.location.href='pykmc.html'">
+  Powrót
+</button>
 
 </body>
 </html>
