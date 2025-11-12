@@ -4,15 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PYKMC - Tryby</title>
+  <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Tymczasowe nadpisanie — na wypadek gdyby style.css ukrywał stronę */
+    #pykmc {
+      display: block !important;
+    }
+
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+
+    .cart-icon img {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 0 6px #fff);
+      transition: transform 0.2s ease;
+    }
+
+    .cart-icon img:hover {
+      transform: scale(1.1);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #ff4d4d;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 3px 6px;
+      border: 1px solid white;
+    }
+  </style>
 </head>
 <body>
-  <!-- Ikona koszyka (pojawia się na każdej stronie) -->
+  <!-- 🔹 Ikona koszyka (na każdej stronie) -->
   <a href="koszyk.html" class="cart-icon">
     <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Koszyk">
     <div class="cart-count" id="cartCount">0</div>
   </a>
 
+  <!-- 🔹 Zawartość strony PYKMC -->
   <section id="pykmc" class="fade-slide">
     <div class="content-wrapper">
       <div class="content-top">
@@ -21,26 +60,26 @@
 
       <div class="mode-grid fade-slide">
         <!-- ENTROPIA -->
-        <a href="entropia.html" class="mode-card">
+        <a href="entropia.html" class="mode-card" style="animation-delay:0.3s;">
           <img src="https://imgur.com/SYvgQoR.png" alt="Entropia">
-          <h3 style="color: #ff3b3b; text-shadow: 0 0 10px #ff3b3b;">ENTROPIA</h3>
+          <h3 style="color: #ff3333; text-shadow: 0 0 10px #ff3333;">ENTROPIA</h3>
           <p class="coming-soon">Każda tarcza się liczy!</p>
         </a>
 
         <!-- BOXPVP -->
-        <div class="mode-card">
+        <div class="mode-card" style="animation-delay:0.4s;">
           <img src="https://imgur.com/HgmT348.png" alt="BoxPVP">
           <h3 style="color: #00bfff; text-shadow: 0 0 10px #00bfff;">BOXPVP</h3>
-          <p class="coming-soon">Coming soon.</p>
+          <p class="coming-soon">Coming soon...</p>
         </div>
       </div>
 
-      <a href="index.html" class="back-button fade-slide">Powrót</a>
+      <a href="index.html" class="back-button fade-slide" style="animation-delay:0.5s;">Powrót</a>
     </div>
   </section>
 
   <script>
-    // --- Licznik koszyka ---
+    // 🔸 Licznik koszyka
     const cartCount = document.getElementById("cartCount");
     const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
     cartCount.textContent = savedCart.length;
