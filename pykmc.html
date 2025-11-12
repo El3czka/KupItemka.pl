@@ -17,22 +17,12 @@
       overflow: hidden;
     }
 
-    /* Neonowy napis PYKMC */
-    .main-title {
-      font-size: 64px;
-      color: #00ffff;
-      text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
-      margin-top: 40px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    /* Logo pod napisem */
+    /* Logo bez obramówki */
     .logo {
-      width: 160px;
-      margin: 10px auto 30px;
+      width: 400px;
+      max-width: 90%;
+      margin: 60px auto 40px;
       display: block;
-      filter: drop-shadow(0 0 8px #00ffff);
     }
 
     /* Kontener na przyciski */
@@ -115,7 +105,6 @@
     .cart-icon img {
       width: 40px;
       height: 40px;
-      filter: drop-shadow(0 0 6px #fff);
       transition: transform 0.2s ease;
     }
 
@@ -148,8 +137,7 @@
     }
 
     @media screen and (max-width: 768px) {
-      .main-title { font-size: 48px; }
-      .logo { width: 120px; }
+      .logo { width: 250px; margin-top: 40px; }
       .mode-grid { gap: 30px; }
       .mode-card { width: 160px; padding: 15px 20px; }
     }
@@ -162,8 +150,7 @@
     <div class="cart-count" id="cartCount">0</div>
   </a>
 
-  <!-- Tytuł i logo -->
-  <h1 class="main-title">PYKMC</h1>
+  <!-- Logo -->
   <img src="https://imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo">
 
   <!-- Przyciski trybów -->
