@@ -9,53 +9,62 @@
 </head>
 <body>
 
+<!-- 🔹 Ikona koszyka -->
+<a href="koszyk.html" class="cart-icon">
+  <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Koszyk">
+  <span class="cart-count" id="cart-count">0</span>
+</a>
+
+<!-- 🔹 Główna treść -->
 <div id="main-site">
-    <canvas id="bgCanvas"></canvas>
-    <div class="content-wrapper">
-        <div class="content-top fade-slide">
-            <div class="neon-blue fade-slide" style="animation-delay: 0.2s;">KUPITEMKA.PL</div>
-            <div class="neon-pink fade-slide" style="animation-delay: 0.4s;">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
+  <canvas id="bgCanvas"></canvas>
+  <div class="content-wrapper">
+    <div class="content-top fade-slide">
+      <div class="neon-blue fade-slide" style="animation-delay: 0.2s;">KUPITEMKA.PL</div>
+      <div class="neon-pink fade-slide" style="animation-delay: 0.4s;">TWÓJ ZAUFANY SKLEP MINECRAFT🩷</div>
 
-            <div class="servers fade-slide" style="animation-delay: 0.6s;">
-                <div class="server">
-                    <div class="server-name">
-                        <span class="white">ANARCHIA</span><span class="yellow">.GG</span>
-                    </div>
-                    <a href="#" class="pykmc-box anarchia-btn">
-                        <span class="white">ANARCHIA</span>
-                    </a>
-                    <div class="coming-soon">Coming soon...</div>
-                </div>
-
-                <div class="server">
-                    <div class="server-name">
-                        <span class="pink">PYK</span><span class="yellow">MC.PL</span>
-                    </div>
-                    <a href="pykmc.html" class="pykmc-box pykmc-btn">
-                        <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
-                    </a>
-                </div>
-            </div>
+      <div class="servers fade-slide" style="animation-delay: 0.6s;">
+        <div class="server">
+          <div class="server-name">
+            <span class="white">ANARCHIA</span><span class="yellow">.GG</span>
+          </div>
+          <a href="#" class="pykmc-box anarchia-btn">
+            <span class="white">ANARCHIA</span>
+          </a>
+          <div class="coming-soon">Coming soon...</div>
         </div>
 
-        <div class="bottom-buttons fade-slide" style="animation-delay: 0.8s;">
-            <div class="info-box">
-                <div class="main-text">6+</div>
-                <div class="sub-text">Legitchecków</div>
-            </div>
-            <div class="info-box">
-                <div class="main-text">Częste konkursy</div>
-                <div class="sub-text">Promocje w weekendy i nie tylko!</div>
-            </div>
-            <div class="info-box">
-                <div class="main-text">Bezpiecznie i tanio</div>
-                <div class="sub-text">Szybkie i bezpieczne usługi</div>
-            </div>
+        <div class="server">
+          <div class="server-name">
+            <span class="pink">PYK</span><span class="yellow">MC.PL</span>
+          </div>
+          <a href="pykmc.html" class="pykmc-box pykmc-btn" id="pykmcBtn">
+            <span><span class="pink">PYK</span><span class="yellow">MC</span></span>
+          </a>
         </div>
+      </div>
     </div>
+
+    <div class="bottom-buttons fade-slide" style="animation-delay: 0.8s;">
+      <div class="info-box">
+        <div class="main-text">4+</div>
+        <div class="sub-text">Legitchecków</div>
+      </div>
+      <div class="info-box">
+        <div class="main-text">Częste konkursy</div>
+        <div class="sub-text">Promocje w weekendy i nie tylko!</div>
+      </div>
+      <div class="info-box">
+        <div class="main-text">Bezpiecznie i tanio</div>
+        <div class="sub-text">Szybkie i bezpieczne usługi</div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<script src="main.js" defer></script>
+<script src="main.js"></script>
+<script>
+updateCartCount();
+</script>
 </body>
 </html>
-
