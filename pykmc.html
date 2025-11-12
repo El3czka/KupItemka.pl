@@ -7,16 +7,104 @@
   <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Wymuszenie widoczności strony */
-    #pykmc {
-      display: flex !important;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Minecraftia', monospace;
+      text-align: center;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
     }
 
+    /* Neonowy napis PYKMC */
+    .main-title {
+      font-size: 64px;
+      color: #00ffff;
+      text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+      margin-top: 40px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    /* Logo pod napisem */
+    .logo {
+      width: 160px;
+      margin: 10px auto 30px;
+      display: block;
+      filter: drop-shadow(0 0 8px #00ffff);
+    }
+
+    /* Kontener na przyciski */
+    .mode-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    /* Styl przycisków trybów */
+    .mode-card {
+      background-color: #111;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      padding: 20px 30px;
+      width: 200px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeSlideIn 0.8s forwards;
+    }
+
+    .mode-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #fff;
+    }
+
+    .mode-card img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .mode-card h3 {
+      margin: 0;
+      font-size: 22px;
+      text-decoration: none;
+    }
+
+    .mode-card .coming-soon {
+      font-size: 14px;
+      color: #888;
+      margin-top: 6px;
+      text-decoration: none;
+    }
+
+    /* Przycisk powrotu */
+    .back-button {
+      margin-top: 40px;
+      background-color: #111;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      padding: 10px 25px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .back-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #fff;
+    }
+
+    /* Ikona koszyka */
     .cart-icon {
       position: fixed;
       top: 20px;
@@ -48,71 +136,6 @@
       border: 1px solid white;
     }
 
-    /* Ustawienie przycisków wyżej */
-    .mode-grid {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 50px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .mode-card {
-      background-color: #111;
-      border: 2px solid #fff;
-      border-radius: 10px;
-      padding: 20px 30px;
-      width: 180px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-      animation: fadeSlideIn 0.8s forwards;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .mode-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #fff;
-    }
-
-    .mode-card img {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 10px;
-    }
-
-    .mode-card h3 {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    .mode-card .coming-soon {
-      font-size: 12px;
-      color: #aaa;
-      margin-top: 4px;
-    }
-
-    .back-button {
-      margin-top: 40px;
-      background-color: #111;
-      border: 2px solid #fff;
-      border-radius: 8px;
-      padding: 10px 25px;
-      font-size: 18px;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s;
-      animation: fadeSlideIn 0.8s forwards;
-    }
-
-    .back-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #fff;
-    }
-
-    /* Animacja */
     @keyframes fadeSlideIn {
       from {
         opacity: 0;
@@ -123,39 +146,43 @@
         transform: translateY(0);
       }
     }
+
+    @media screen and (max-width: 768px) {
+      .main-title { font-size: 48px; }
+      .logo { width: 120px; }
+      .mode-grid { gap: 30px; }
+      .mode-card { width: 160px; padding: 15px 20px; }
+    }
   </style>
 </head>
 <body>
-  <!-- 🔹 Ikona koszyka -->
+  <!-- Ikona koszyka -->
   <a href="koszyk.html" class="cart-icon">
     <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Koszyk">
     <div class="cart-count" id="cartCount">0</div>
   </a>
 
-  <!-- 🔹 Strona PYKMC -->
-  <section id="pykmc" class="fade-slide">
-    <div class="content-top">
-      <img src="https://imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide">
+  <!-- Tytuł i logo -->
+  <h1 class="main-title">PYKMC</h1>
+  <img src="https://imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo">
+
+  <!-- Przyciski trybów -->
+  <div class="mode-grid">
+    <a href="entropia.html" class="mode-card">
+      <img src="https://imgur.com/SYvgQoR.png" alt="Entropia">
+      <h3 style="color: #ff3333; text-shadow: 0 0 10px #ff3333;">ENTROPIA</h3>
+      <p class="coming-soon">Każda tarcza się liczy!</p>
+    </a>
+
+    <div class="mode-card">
+      <img src="https://imgur.com/HgmT348.png" alt="BoxPVP">
+      <h3 style="color: #00bfff; text-shadow: 0 0 10px #00bfff;">BOXPVP</h3>
+      <p class="coming-soon">Coming soon...</p>
     </div>
+  </div>
 
-    <div class="mode-grid fade-slide">
-      <!-- ENTROPIA -->
-      <a href="entropia.html" class="mode-card" style="animation-delay:0.3s;">
-        <img src="https://imgur.com/SYvgQoR.png" alt="Entropia">
-        <h3 style="color: #ff3333; text-shadow: 0 0 10px #ff3333;">ENTROPIA</h3>
-        <p class="coming-soon">Każda tarcza się liczy!</p>
-      </a>
-
-      <!-- BOXPVP -->
-      <div class="mode-card" style="animation-delay:0.4s;">
-        <img src="https://imgur.com/HgmT348.png" alt="BoxPVP">
-        <h3 style="color: #00bfff; text-shadow: 0 0 10px #00bfff;">BOXPVP</h3>
-        <p class="coming-soon">Coming soon...</p>
-      </div>
-    </div>
-
-    <a href="index.html" class="back-button fade-slide" style="animation-delay:0.5s;">Powrót</a>
-  </section>
+  <!-- Przycisk powrotu -->
+  <a href="index.html" class="back-button">Powrót</a>
 
   <script>
     // 🔸 Licznik koszyka
