@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PYKMC.PL</title>
-<link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PYKMC - Tryby</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Ikona koszyka (pojawia się na każdej stronie) -->
+  <a href="koszyk.html" class="cart-icon">
+    <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Koszyk">
+    <div class="cart-count" id="cartCount">0</div>
+  </a>
 
-<!-- 🔹 Koszyk -->
-<a href="koszyk.html" class="cart-icon">
-  <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Koszyk">
-  <span class="cart-count" id="cart-count">0</span>
-</a>
+  <section id="pykmc" class="fade-slide">
+    <div class="content-wrapper">
+      <div class="content-top">
+        <img src="https://imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide">
+      </div>
 
-<img src="https://i.imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide" style="animation-delay: 0.2s;">
+      <div class="mode-grid fade-slide">
+        <!-- ENTROPIA -->
+        <a href="entropia.html" class="mode-card">
+          <img src="https://imgur.com/SYvgQoR.png" alt="Entropia">
+          <h3 style="color: #ff3b3b; text-shadow: 0 0 10px #ff3b3b;">ENTROPIA</h3>
+          <p class="coming-soon">Każda tarcza się liczy!</p>
+        </a>
 
-<div class="mode-grid">
-  <div class="mode-card" style="animation-delay:0.3s;">
-    <img src="https://i.imgur.com/SYvgQoR.png" alt="Entropia">
-    <h3 style="color: #ff3333;">ENTROPIA</h3>
-    <a href="entropia.html" class="coming-soon">Wejdź</a>
-  </div>
-  <div class="mode-card" style="animation-delay:0.4s;">
-    <img src="https://i.imgur.com/HgmT348.png" alt="BoxPVP">
-    <h3 style="color: #00ffff;">BOXPVP</h3>
-    <div class="coming-soon">Coming soon...</div>
-  </div>
-</div>
+        <!-- BOXPVP -->
+        <div class="mode-card">
+          <img src="https://imgur.com/HgmT348.png" alt="BoxPVP">
+          <h3 style="color: #00bfff; text-shadow: 0 0 10px #00bfff;">BOXPVP</h3>
+          <p class="coming-soon">Coming soon.</p>
+        </div>
+      </div>
 
-<button class="back-button fade-slide" style="animation-delay: 0.7s;" onclick="window.location.href='index.html'">Powrót</button>
+      <a href="index.html" class="back-button fade-slide">Powrót</a>
+    </div>
+  </section>
 
-<script src="main.js"></script>
-<script>
-updateCartCount();
-</script>
+  <script>
+    // --- Licznik koszyka ---
+    const cartCount = document.getElementById("cartCount");
+    const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+    cartCount.textContent = savedCart.length;
+  </script>
 </body>
 </html>
