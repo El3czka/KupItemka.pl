@@ -5,130 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PYKMC.PL</title>
 <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  font-family: Arial, sans-serif;
-  background: #000;
-  color: white;
-  text-align: center;
-  overflow-x: hidden;
-}
-
-.fade-slide {
-  opacity: 0;
-  transform: translateY(-40px);
-  animation: fadeSlideIn 0.8s forwards;
-}
-
-@keyframes fadeSlideIn {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Logo */
-.logo {
-  width: 300px;
-  max-width: 80%;
-  margin: 30px auto;
-}
-
-/* Siatka trybów */
-.mode-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 50px;
-}
-
-/* Kafelek trybu */
-.mode-card {
-  background-color: #111;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  padding: 25px 35px;
-  width: 180px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  opacity: 0;
-  transform: translateY(-50px);
-  animation: fadeSlideIn 0.8s forwards;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.mode-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #fff;
-}
-
-.mode-card img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 10px;
-}
-
-.mode-card h3 {
-  margin: 0;
-  font-size: 18px;
-  color: #fff;
-}
-
-/* Coming soon */
-.coming-soon {
-  font-family: 'Arial Black', Arial, sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  color: #888;
-  margin-top: 6px;
-}
-
-/* Przycisk powrotu */
-.back-button {
-  margin-top: 60px;
-  background-color: #111;
-  border: 2px solid #fff;
-  border-radius: 8px;
-  padding: 12px 28px;
-  font-size: 18px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s;
-  opacity: 0;
-  transform: translateY(-50px);
-  animation: fadeSlideIn 0.8s forwards;
-}
-
-.back-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #fff;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- 🔹 Koszyk -->
+<a href="koszyk.html" class="cart-icon">
+  <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Koszyk">
+  <span class="cart-count" id="cart-count">0</span>
+</a>
 
 <img src="https://i.imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide" style="animation-delay: 0.2s;">
 
 <div class="mode-grid">
-  <div class="mode-card" onclick="window.location.href='entropia.html'" style="animation-delay: 0.3s;">
+  <div class="mode-card" style="animation-delay:0.3s;">
     <img src="https://i.imgur.com/SYvgQoR.png" alt="Entropia">
     <h3 style="color: #ff3333;">ENTROPIA</h3>
-    <div class="coming-soon">Każda tarcza się liczy!</div>
+    <a href="entropia.html" class="coming-soon">Wejdź</a>
   </div>
-  <div class="mode-card" style="animation-delay: 0.4s;">
+  <div class="mode-card" style="animation-delay:0.4s;">
     <img src="https://i.imgur.com/HgmT348.png" alt="BoxPVP">
     <h3 style="color: #00ffff;">BOXPVP</h3>
     <div class="coming-soon">Coming soon...</div>
   </div>
 </div>
 
-<button class="back-button fade-slide" style="animation-delay: 0.7s;" onclick="window.location.href='index.html'">
-  Powrót
-</button>
+<button class="back-button fade-slide" style="animation-delay: 0.7s;" onclick="window.location.href='index.html'">Powrót</button>
 
+<script src="main.js"></script>
+<script>
+updateCartCount();
+</script>
 </body>
 </html>
