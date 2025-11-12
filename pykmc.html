@@ -7,9 +7,14 @@
   <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Tymczasowe nadpisanie — na wypadek gdyby style.css ukrywał stronę */
+    /* Wymuszenie widoczności strony */
     #pykmc {
-      display: block !important;
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
     }
 
     .cart-icon {
@@ -42,40 +47,114 @@
       padding: 3px 6px;
       border: 1px solid white;
     }
+
+    /* Ustawienie przycisków wyżej */
+    .mode-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .mode-card {
+      background-color: #111;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      padding: 20px 30px;
+      width: 180px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      animation: fadeSlideIn 0.8s forwards;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .mode-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #fff;
+    }
+
+    .mode-card img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .mode-card h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .mode-card .coming-soon {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 4px;
+    }
+
+    .back-button {
+      margin-top: 40px;
+      background-color: #111;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      padding: 10px 25px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s;
+      animation: fadeSlideIn 0.8s forwards;
+    }
+
+    .back-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #fff;
+    }
+
+    /* Animacja */
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- 🔹 Ikona koszyka (na każdej stronie) -->
+  <!-- 🔹 Ikona koszyka -->
   <a href="koszyk.html" class="cart-icon">
     <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Koszyk">
     <div class="cart-count" id="cartCount">0</div>
   </a>
 
-  <!-- 🔹 Zawartość strony PYKMC -->
+  <!-- 🔹 Strona PYKMC -->
   <section id="pykmc" class="fade-slide">
-    <div class="content-wrapper">
-      <div class="content-top">
-        <img src="https://imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide">
-      </div>
-
-      <div class="mode-grid fade-slide">
-        <!-- ENTROPIA -->
-        <a href="entropia.html" class="mode-card" style="animation-delay:0.3s;">
-          <img src="https://imgur.com/SYvgQoR.png" alt="Entropia">
-          <h3 style="color: #ff3333; text-shadow: 0 0 10px #ff3333;">ENTROPIA</h3>
-          <p class="coming-soon">Każda tarcza się liczy!</p>
-        </a>
-
-        <!-- BOXPVP -->
-        <div class="mode-card" style="animation-delay:0.4s;">
-          <img src="https://imgur.com/HgmT348.png" alt="BoxPVP">
-          <h3 style="color: #00bfff; text-shadow: 0 0 10px #00bfff;">BOXPVP</h3>
-          <p class="coming-soon">Coming soon...</p>
-        </div>
-      </div>
-
-      <a href="index.html" class="back-button fade-slide" style="animation-delay:0.5s;">Powrót</a>
+    <div class="content-top">
+      <img src="https://imgur.com/ip0UxHx.png" alt="PYKMC Logo" class="logo fade-slide">
     </div>
+
+    <div class="mode-grid fade-slide">
+      <!-- ENTROPIA -->
+      <a href="entropia.html" class="mode-card" style="animation-delay:0.3s;">
+        <img src="https://imgur.com/SYvgQoR.png" alt="Entropia">
+        <h3 style="color: #ff3333; text-shadow: 0 0 10px #ff3333;">ENTROPIA</h3>
+        <p class="coming-soon">Każda tarcza się liczy!</p>
+      </a>
+
+      <!-- BOXPVP -->
+      <div class="mode-card" style="animation-delay:0.4s;">
+        <img src="https://imgur.com/HgmT348.png" alt="BoxPVP">
+        <h3 style="color: #00bfff; text-shadow: 0 0 10px #00bfff;">BOXPVP</h3>
+        <p class="coming-soon">Coming soon...</p>
+      </div>
+    </div>
+
+    <a href="index.html" class="back-button fade-slide" style="animation-delay:0.5s;">Powrót</a>
   </section>
 
   <script>
